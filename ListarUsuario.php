@@ -3,14 +3,25 @@
      use Source\Model\Usuario;
      require_once "menu.php";
     $usuario = new Usuario();
+    $dados = $usuario->buscarDados();
 ?>
 <style>
-        body{
+     body{
             background-color: #E2C0FF;
         }
-    </style>
+    table{
+        border: 1px solid black;
+  
+    }
+    table td{
+        padding: 5px;
+    }
+    table .dados{
+        padding:0;
+    }
+</style>
 
-<table> 
+<table>
     <thead>
         <tr>
             <td>Nome</td>
@@ -18,5 +29,30 @@
             <td>Tipo Usuario</td>
             <td>Açoes</td>
         </tr>
-    </thead>        
+    </thead> 
+    <tbody>
+         <?php
+            if(count($dados) > 0){
+        
+                foreach ($dados as $i => $usuario) {
+                    
+                    echo "
+                    <tr>
+                        <td>" . $usuario["nome_usuario"] . "</td>
+                        <td>" . $usuario["email_usuario"] . "</td>
+                        <td>" . $usuario["desc_tipo_us"] . "</td>
+                        <td>Açoes</td>
+                    </tr>"; 
+                }
+            } else {
+    ?>
+            <tr>
+                <td colspan="4">Nenhum usuário encontrado</td>
+            </tr>
+    <?php
+            }
+    ?> 
+
+
+    </tbody>       
 </table>

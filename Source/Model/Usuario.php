@@ -7,7 +7,7 @@ class Usuario
 {
     public function buscarDados() //Seleciona Dados Do Usuario
     {
-        $query = Connect::getInstance()->query("SELECT * from usuario where cod_status_usuario = 1");
+        $query = Connect::getInstance()->query("SELECT U.*, TU.desc_tipo_us from usuario U LEFT JOIN tipo_usuario TU ON TU.cod_tipo_us = U.cod_tipo_us where U.cod_status_usuario = 1");
         $res = $query->fetchAll();
         return $res;
     }

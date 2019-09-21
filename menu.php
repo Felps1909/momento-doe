@@ -39,9 +39,9 @@
                         function closeNav() {
                             document.getElementById("myNav").style.width = "0%";
                         }
-            </script>
+                    </script>
                </section>
-               <section class="menucima">  
+               <section class="menucima">
                     <span id="bars" onclick="openNav()">&#9776;</span> 
 
                     <img class="logo-menu" src="view/imagens/logodomenu.png">
@@ -54,10 +54,9 @@
                 <div class="opac_submenu">
                     <div class="submenu">
                         <ul>
-                            <li><a href="login.php">Home</a></li>
-                            <li><a href="cadastro.php">Doacao</a></li>
-                            <li><a href="#u25">Ongs</a></li>
-                            
+                            <li><a href="index.php">Home</a></li>
+                            <li><a href="doacoes.php">Doacao</a></li>
+                            <li><a href="ongs.php">Ongs</a></li>
                         </ul>
                     </div>
                 </div>

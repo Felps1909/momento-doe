@@ -19,15 +19,15 @@
                         </a>
                     <div class="overlay-content">
                         <hr>
-                        <a href="#">Login</a>
+                        <a href="login.php">Login</a>
                         <hr>
-                        <a href="#">Cadastro</a>
+                        <a href="cadastro.php">Cadastro</a>
                         <hr>
                         <a href="#">Ranking</a>
                         <hr>
-                        <a href="#">Quem Somos</a>
+                        <a href="quem-somos.php">Quem Somos</a>
                         <hr>
-                        <a href="#">Depoimentos</a>
+                        <a href="depoimentos.php">Depoimentos</a>
                     </div>
                     </div>
                     

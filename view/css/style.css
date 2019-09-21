@@ -79,7 +79,6 @@ header {
     margin-top: -5px*/
 }
 .menucima {
-  width: 83%;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -105,7 +104,7 @@ header {
   padding-right: 15px;
 }
 .opac_submenu {
-  background-color: #8800ff;
+  background: url("../imagens/bg.png");
   height: auto;
   opacity: 0.8;
   padding: 10px;
@@ -184,4 +183,61 @@ header {
   position: absolute;
   top: 80px;
   left: 112px;
+}
+.btn-cadastro {
+  text-decoration: none;
+  color: white;
+  background-color: #716080;
+  padding: 5px 15px 5px 15px;
+  margin-right: 25px;
+  border: 1px solid white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.btn-cadastro:hover {
+  background-color: #9281a1;
+}
+.btn {
+  margin-top: 45px;
+  text-align: center;
+}
+.tipos {
+  margin: 25px;
+}
+.tipos input {
+  margin-left: 20px;
+  display: inline-block;
+}
+
+.hidden {
+  display: none;
+}
+/* #empresa {
+  margin-left: 20px;
+}
+#pessoa {
+  margin-left: 25px; */
+
+.form-campos {
+  margin: 20px 10px;
+}
+.form-campos .input {
+  background-color: #f4e6ff;
+  border: none;
+  height: 20px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.form-campos label {
+  margin-bottom: 5px;
+  display: block;
+}
+.form-campos input[type="Submit"] {
+  background-color: #9281a1;
+  color: white;
+  padding: 2px 20px;
+  border: 1px solid white;
+  border-radius: 5px;
+  margin-left: 100px;
+  margin-top: 20px;
 }

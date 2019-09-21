@@ -1,3 +1,10 @@
+<?php
+    require_once "vendor/autoload.php";
+    use Source\Model\Usuario;
+
+   $usuario = new Usuario();
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -11,6 +18,29 @@
 </head>
 
 <body>
+     <?php
+        if(isset($_POST['nome_usuario'])){
+            
+            $nome_usuario = addslashes($_POST['nome_usuario']);
+            $senha_usuario = addslashes($_POST['senha_usuario']);
+            $email_usuario = addslashes($_POST['email_usuario']);
+			$data_usuario = addslashes($_POST['data_usuario']);
+			$tipo_usuario = (int)$_POST['tipos'];
+            //$tel_usuario = addslashes($_POST['tel_usuario']);
+            
+            if(!empty($nome_usuario) && !empty($senha_usuario)
+             && !empty($email_usuario) && !empty($data_usuario) && !empty($tipo_usuario)){
+
+                if(!$usuario->cadastrarUsuario($nome_usuario, $senha_usuario,
+                $email_usuario,  $data_usuario, $tipo_usuario)){
+                    echo "Email ja esta Cadastrado";
+                }
+
+            }else{
+                echo "Prencha todos os campos";
+            }
+        }
+    ?>
     <div id="inicio">
         <!--caixa roxa-->
         <div id="u0" class="ax_default box_1">
@@ -156,26 +186,26 @@
          <!--Formulario de cadastro padrão -->
          <form action="" method="post" id="formulario_cad">
          <div class="botoes">
-             <input class="ongs" type="radio" name="ongs" value="ongs"> ONGs
-             <input class="empresa" type="radio" name="empresa" value="empresa"> EMPRESA
-             <input class="pessoa" type="radio" name="pessoa" value="pessoa"> PESSOA
+             <input class="ongs" type="radio" name="tipos" value="1"> ONGs
+             <input class="empresa" type="radio" name="tipos" value="2"> EMPRESA
+             <input class="pessoa" type="radio" name="tipos" value="3"> PESSOA
          </div>
         
 
          <label>Nome:</label>
-         <input type="text" name="txtNome" class="botao_form">
+         <input type="text" name="nome_usuario" class="botao_form">
          
 
          <label>E-mail</label>
-         <input type="text" name="txtEmail" class="botao_form">
+         <input type="text" name="email_usuario" class="botao_form">
          
 
          <label>Senha:</label>
-         <input type="password" name="txtSenha" class="botao_form">
+         <input type="password" name="senha_usuario" class="botao_form">
          
 
          <label>Data de nascimento:</label>
-         <input type="date" name="txtData" value="data" class="botao_form">
+         <input type="date" name="data_usuario" value="data" class="botao_form">
          
 
          <input type="submit" name="enviar" value="Enviar" id="enviar">

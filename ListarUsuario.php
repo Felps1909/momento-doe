@@ -1,7 +1,4 @@
 <?php
-    if(!session_start()){
-        session_start();
-    }   
      require_once "vendor/autoload.php";
      use Source\Model\Usuario;
      
@@ -18,6 +15,7 @@
     <link rel=stylesheet media="screen and (max-width:480px)" href="view/css/480pxLogin.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Oswald|Roboto&display=swap" rel="stylesheet">
     <title>Login - Momento Doe</title>
+    
 </head>
 
 <body>
@@ -161,53 +159,17 @@
                 </div>
             </div>
         </div>
-        <!--fim box home-->
+        <table>
+           <tr>
+               <td>Nome</td>
+           </tr>             
+
+        </table>
 
 
 
 
-        <!--botoes cadastro e login-->
-        <div id="u1" class="as_default primary_button" style="cursor: pointer;">
-            <div id="u1_div" class tabindex="0"></div>
-            <div id="u1_text" class="text">
-                <p>
-                    <a href="cadastro.php">
-                        <span>Cadastro</span>
-                    </a>
-                </p>
-            </div>
-        </div>
-
-        <div id="u2" class="ax-default primary_button" style="cursor: pointer;">
-            <div id="u2_div" class tabindex="0"></div>
-            <div id="u2_text" class="text">
-                <p>
-                    <a href="login.php">
-                        <span>Login</span>
-                    </a>
-                </p>
-            </div>
-        </div>
-
-        <!--fim dos botoes cadastro e login-->
-
-
-
-
-        <!--Formulario-->
-        <form action="" method="post" id="formulario_cad">
-            <label>E-mail</label>
-            <input type="text" name="email_usuario" class="botao_form">
-         
-                        <br><br><br>
-
-            <label>Senha:</label>
-            <input type="password" name="senha_usuario" class="botao_form">
-                    
-            <input type="submit" name="enviar" value="Enviar" id="enviar">
-
-        </form>
-    </div>
+        
 </body>
 
 </html>

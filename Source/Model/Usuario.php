@@ -5,16 +5,17 @@ use Source\Database\Connect;
 
 class Usuario
 {
-    public function buscarDados()
+    public function buscarDados() //Seleciona Dados Do Usuario
     {
-        $query = Connect::getInstance()->query("SELECT * FROM usuario LIMIT 2");
+        $query = Connect::getInstance()->query("SELECT * from usuario where cod_status_usuario = 1");
         $res = $query->fetchAll();
         return $res;
     }
 
-    public function cadastrarUsuario($nome_usuario, $senha_usuario, $email_usuario, $tel_usuario)
+    public function cadastrarUsuario($nome_usuario, $senha_usuario, $email_usuario, $data_usuario, $tipo_usuario) //Inserção 
     {
         //VERIFICAÇÃO DE USUARIO, VERIFICA SE JA N HÁ USUARIO CADASTRADO
+        $data_usuario = implode("-",array_reverse(explode("/",$data_usuario)));
 
         $query = Connect::getInstance()->prepare("SELECT id_usuario from usuario where email_usuario = :e");
         $query->bindValue(":e",$email_usuario);
@@ -24,16 +25,17 @@ class Usuario
             return false;
         
         }else{
-            $query = Connect::getInstance()->prepare("INSERT INTO usuario (nome_usuario, senha_usuario,email_usuario, tel_usuario)
-            values(:n,:s,:e,:t)
+            $query = Connect::getInstance()->prepare("INSERT INTO usuario (nome_usuario, senha_usuario,email_usuario, data_nascimento, cod_tipo_us)
+            values(:n,:s,:e,:d,:t)
         ");
 
             $query->bindValue(':n',$nome_usuario);
             $query->bindValue(':s',$senha_usuario);
             $query->bindValue(':e',$email_usuario);
-            $query->bindValue(':t',$tel_usuario);
-            $query->execute();
-            return true;
+            $query->bindValue(':d',$data_usuario);
+            $query->bindValue(':t',$tipo_usuario);
+            return $query->execute();
+            
 
         }
     }
@@ -52,11 +54,18 @@ class Usuario
             $dados = $query->fetch();
             // session_start();
             $_SESSION['id_usuario'] = $dados['id_usuario'];
+
+
+           
             
             return true;
         }else{
             return false;
         }
+    }
+    public function excluirUsuario()
+    {
+
     }   
 
 }

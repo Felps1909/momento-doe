@@ -1,19 +1,19 @@
-*{
-    margin:0;
-    padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  /************ MENU  ***********/
-  /**********menu hamburguer***********/
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+/************ MENU  ***********/
+/**********menu hamburguer***********/
 .overlay {
   height: 100%;
   width: 0;
   position: fixed;
   z-index: 2;
   top: 0;
-  right:0;
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0, 0.9);
+  right: 0;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.9);
   overflow-x: hidden;
   transition: 0.5s;
 }
@@ -30,21 +30,22 @@
   padding-top: 2px;
   text-decoration: none;
   font-size: 28px;
-  color:white;
+  color: white;
   display: block;
   transition: 0.3s;
 }
-.overlay hr{
-    margin-top: 10px;
-    margin-left: 20px;
-    width: 280px;
-    height: 2px;   
-    background-color: white
+.overlay hr {
+  margin-top: 10px;
+  margin-left: 20px;
+  width: 280px;
+  height: 2px;
+  background-color: white;
 }
-.overlay hr:nth-child(1){
-    margin-top: 60px;
+.overlay hr:nth-child(1) {
+  margin-top: 60px;
 }
-.overlay a:hover, .overlay a:focus {
+.overlay a:hover,
+.overlay a:focus {
   color: #f1f1f1;
 }
 
@@ -56,22 +57,21 @@
 }
 
 /********header*********/
-#bars{
+#bars {
   position: absolute;
   left: 265px;
-  font-size:33px;
+  font-size: 33px;
   font-weight: bold;
   color: white;
-  cursor:pointer;
+  cursor: pointer;
   display: flex;
   float: right;
   /*margin: 15px;*/
   margin-top: -5px;
   z-index: 1;
-  width:40px;
-   
+  width: 40px;
 }
-.menucima{
+.menucima {
   /*display: flex;*/
   justify-content: space-around;
   align-items: center;
@@ -81,17 +81,17 @@
 }
 /**********fim menu hamburguer**************/
 
-  .img{
-    width: 100%;
-    margin-top: 16px;
-  }
-  a{
-    text-decoration: none;
-    color: white;
-  }
+.img {
+  width: 100%;
+  margin-top: 16px;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
 
-  /******************box home*************************/
-#u63{
+/******************box home*************************/
+#u63 {
   border-width: 0;
   position: absolute;
   left: 0px;
@@ -102,19 +102,18 @@
   opacity: 0.5;
 }
 
-#u64{
+#u64 {
   border-width: 0;
   position: absolute;
   left: 0px;
   top: 0px;
   width: 100%;
-  height: 38px;  
+  height: 38px;
 }
 /*********FIM BOX HOME***********/
 
-
 /**************home*****************/
-#u65{
+#u65 {
   position: absolute;
   left: 0px;
   top: 0px;
@@ -123,35 +122,33 @@
   display: flex;
   color: #ffffff;
 }
-#u65_div{
+#u65_div {
   position: absolute;
   left: 0px;
   width: 100%;
   height: 37px;
   background: inherit;
- 
+
   border: none;
   border-radius: 0px;
   box-shadow: none;
- 
 }
-#u65 .text{
+#u65 .text {
   position: absolute;
   align-self: center;
   padding: 11px 35px 2px 30px;
   box-sizing: border-box;
   width: 40%;
 }
-#u65_text{
+#u65_text {
   border-width: 0px;
   word-wrap: break-word;
   text-transform: none;
 }
 /*******FIM HOME********/
 
-
 /**************doacao****************/
-#u66{
+#u66 {
   border-width: 0px;
   position: absolute;
   left: 100px;
@@ -161,23 +158,22 @@
   display: flex;
   color: #ffffff;
 }
-#u66 .text{
+#u66 .text {
   position: absolute;
   align-self: center;
   padding: 11px 2px 2px 19px;
   box-sizing: border-box;
   width: 100%;
 }
-#u66_text{
+#u66_text {
   border-width: 0px;
   word-wrap: break-word;
   text-transform: none;
 }
 /**********FIM DOACAO**********/
 
-
 /**************ongs****************/
-#u67{
+#u67 {
   border-width: 0px;
   position: absolute;
   left: 200px;
@@ -187,25 +183,24 @@
   display: flex;
   color: #ffffff;
 }
-#u67 .text{
+#u67 .text {
   position: absolute;
   align-self: center;
   padding: 11px 2px 2px 42px;
   box-sizing: border-box;
   width: 100%;
 }
-#u67_text{
-border-width: 0px;
-word-wrap: break-word;
-text-transform: none;
+#u67_text {
+  border-width: 0px;
+  word-wrap: break-word;
+  text-transform: none;
 }
 /**********FIM ONGS************/
 /***********fim box home******/
 
-
-/*box menu*/    
-#box1{
-  border-width:0px;
+/*box menu*/
+#box1 {
+  border-width: 0px;
   position: absolute;
   left: 0px;
   top: -1px;
@@ -215,7 +210,7 @@ text-transform: none;
   font-size: 16px;
   color: #ffffff;
 }
-#box1_div{
+#box1_div {
   border-width: 0px;
   position: absolute;
   left: 0;
@@ -235,10 +230,8 @@ text-transform: none;
 }
 /*fim box menu*/
 
-
-
 /***************perfil***********/
-#perfil{
+#perfil {
   position: absolute;
   left: 12px;
   top: 14px;
@@ -246,7 +239,7 @@ text-transform: none;
   height: 28px;
   display: flex;
 }
-#perfil1{
+#perfil1 {
   position: absolute;
   left: 0px;
   top: 5px;
@@ -256,7 +249,7 @@ text-transform: none;
 /*******************fim do perfil**************************/
 
 /*****************MINI LOGO *******************/
-#MINIlogo{
+#MINIlogo {
   position: absolute;
   left: 135px;
   top: 15px;
@@ -264,7 +257,7 @@ text-transform: none;
   height: 36px;
   display: flex;
 }
-#MINILogo1{
+#MINILogo1 {
   position: absolute;
   left: 0px;
   top: 0px;
@@ -273,52 +266,31 @@ text-transform: none;
 }
 /***************FIM MINI LOGO*******************/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*********** IMAGEM DEPOIMENTO ***********/
- .depoimento img{
-    width: 100%;
-    position: absolute;
-    top: -100px;
-    
-} 
+.depoimento img {
+  width: 100%;
+  position: absolute;
+  top: -100px;
+}
 
 /************ TEXTO DEPOIMENTO ***********/
-.dep{
-    position: absolute;
-    text-align: left;
-    top: 100px;
-    z-index: 1;
+.dep {
+  position: absolute;
+  text-align: left;
+  top: 100px;
+  z-index: 1;
 }
-.dep h2{
-    color: white;
-    margin-left: 25px;
-    font-size: 28px;
-    padding-top: 25px
- 
+.dep h2 {
+  color: white;
+  margin-left: 25px;
+  font-size: 28px;
+  padding-top: 25px;
 }
-.dep span{
-    color: white;
-    margin-left: 25px;
-    font-size: 18px;
-    
-} 
+.dep span {
+  color: white;
+  margin-left: 25px;
+  font-size: 18px;
+}
 /************ BOTAO DAR DEPOIMENTO **********/
 /*.btn-dardep{
     width: 120px;
@@ -328,45 +300,44 @@ text-transform: none;
 
 /************ DEPOIMENTOS **********/
 
-.depo-postite{
- display: flex;
- flex-direction: column;
+.depo-postite {
+  display: flex;
+  flex-direction: column;
 }
-.postite{
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: flex-start
+.postite {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: flex-start;
 }
- .postite{
-    position: relative;
-    top: 25px;
-    margin: 5px;
-    z-index: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} 
- .postite .nome{
-    position: absolute;
-    text-align: center;
-    top: 200px;
-    left: 125px;
-    z-index: 2;
-} 
- .postite p{
-    position: absolute;
-    text-align: center;
-    top: 280px;
-    left: 50px;
-    z-index: 2;
-} 
- .postite .ft-pessoa{
-    width:100px;
-    height: 100px; 
-    border-radius:60px;
-    position: absolute;
-    top: 80px; 
-    left: 112px;
-
-}   
+.postite {
+  position: relative;
+  top: 25px;
+  margin: 5px;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.postite .nome {
+  position: absolute;
+  text-align: center;
+  top: 200px;
+  left: 125px;
+  z-index: 2;
+}
+.postite p {
+  position: absolute;
+  text-align: center;
+  top: 280px;
+  left: 50px;
+  z-index: 2;
+}
+.postite .ft-pessoa {
+  width: 100px;
+  height: 100px;
+  border-radius: 60px;
+  position: absolute;
+  top: 80px;
+  left: 112px;
+}

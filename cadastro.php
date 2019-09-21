@@ -1,9 +1,6 @@
 <?php
     require_once "vendor/autoload.php";
     use Source\Model\Usuario;
-
-   
-
    $usuario = new Usuario();
  require_once "menu.php";
 ?>
@@ -39,7 +36,7 @@
        <!--botoes cadastro e login-->
        <div class="btn">
             <a href="cadastro.php" class="btn-cadastro">Cadastro</a>
-            <a href="cadastro.php" class="btn-cadastro">Login</a>
+            <a href="login.php" class="btn-cadastro">Login</a>
        </div>
        
           <form method ="post" class="form-campos">
@@ -105,6 +102,9 @@
 
                 <label>Senha</label>
                 <input class="input" type="password" name="senha_usuario">
+
+                 <label>Data Nascimento</label>
+                <input class="input" type="date" name="data_usuario">
                 
 
                 <input type="Submit" name="Enviar" value="Enviar">

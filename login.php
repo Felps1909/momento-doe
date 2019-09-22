@@ -13,7 +13,7 @@
         if(isset($_POST['email_usuario'])){
             
        
-        $senha_usuario = addslashes($_POST['senha_usuario']);
+        $senha_usuario = hash("sha256", addslashes($_POST['senha_usuario']));
         $email_usuario = addslashes($_POST['email_usuario']);
        
         

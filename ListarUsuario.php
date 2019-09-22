@@ -20,7 +20,11 @@
         padding:0;
     }
 </style>
+<?php
+    
 
+
+?>
 <table>
     <thead>
         <h3>Usuarios:</h3>
@@ -39,11 +43,11 @@
                     
                     echo "
                     <tr>
-                        <td>" . $usuario["nome_usuario"] . "</td>
-                        <td>" . $usuario["email_usuario"] . "</td>
-                        <td>" . $usuario["desc_tipo_us"] . "</td>
-                        <td><a href='cadastro.php?i=". $usuario["id_usuario"]."'>Editar</a></td>
-                        <td><a href='#'>Eliminar</a></td>
+                        <td>" . $usuario->nome_usuario . "</td>
+                        <td>" . $usuario->email_usuario . "</td>
+                        <td>" . $usuario->getTipoUsuario()->desc_tipo_us . "</td>
+                        <td><a href='cadastro.php?i=". $usuario->id_usuario."'>Editar</a></td>
+                        <td><a href='listarUsuario'>Eliminar</a></td>
                     </tr>"; 
                 }
             } else {

@@ -14,8 +14,9 @@
 
         if(isset($_POST['nome_usuario'])){
             
+            $id_usuario = (int)$_POST['id_usuario'];
             $nome_usuario = addslashes($_POST['nome_usuario']);
-            $senha_usuario = addslashes($_POST['senha_usuario']);
+            $senha_usuario = hash("sha256",addslashes($_POST['senha_usuario']));
             $email_usuario = addslashes($_POST['email_usuario']);
 			$data_usuario = addslashes($_POST['data_usuario']);
 			$tipo_usuario = (int)$_POST['tipos'];
@@ -24,10 +25,24 @@
             if(!empty($nome_usuario) && !empty($senha_usuario)
              && !empty($email_usuario) && !empty($data_usuario) && !empty($tipo_usuario)){
 
-                if(!$usuario->cadastrarUsuario($nome_usuario, $senha_usuario,
-                $email_usuario,  $data_usuario, $tipo_usuario)){
-                    echo "Email ja esta Cadastrado";
-                }
+                if(!$id_usuario && count($usuario->buscarDados("email_usuario = '$email_usuario'"))> 0){
+                    echo "Deu Erro";
+                }else{
+
+                    $usuario->nome_usuario = $nome_usuario;
+                    $usuario->senha_usuario = $senha_usuario;
+                    //$usuario->tel_usuario = ;
+                    $usuario->email_usuario = $email_usuario;
+                    //$usuario->url_foto_usuario;
+                    //$usuario->cod_status_tipo_us;
+                    $usuario->cod_tipo_us = $tipo_usuario;
+                    $usuario->data_nascimento = $data_usuario;
+                    $usuario->salvarDados();
+
+                    echo"<script>";
+                    echo "alert('Cadastrado com Sucesso')";
+                    echo"</script>";
+                }  
 
             }else{
                 echo "Prencha todos os campos";
@@ -50,7 +65,7 @@
                 <span onClick="toggleRegister(this)"><input type="radio" name="tipos" value="1"> EMPRESA</span>
                 <span onClick="toggleRegister(this)"><input type="radio" name="tipos" value="2" checked> PESSOA</span>
             </div> 
-       
+            <input type="hidden" name="id_usuario" value ="<?php echo $usuario->id_usuario;?>" >
        
        <div id="empresa" class="hidden">
             
@@ -107,7 +122,7 @@
                 
 
                 <label>Senha</label>
-                <input class="input" type="password" name="senha_usuario" value="<?php echo $usuario->senha_usuario;?>">
+                <input class="input" type="password" name="senha_usuario" >
 
                  <label>Data Nascimento</label>
                 <input class="input" type="date" name="data_usuario" value="<?php echo $usuario->data_nascimento;?>">

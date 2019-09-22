@@ -3,7 +3,7 @@
      use Source\Model\Usuario;
      require_once "menu.php";
     $usuario = new Usuario();
-    $dados = $usuario->buscarDados();
+    $dados = $usuario->buscarDados("cod_status_usuario = 1");
 ?>
 <style>
      body{
@@ -21,7 +21,11 @@
     }
 </style>
 <?php
-    
+    if(isset($_GET['i'])){
+            $usuario = $usuario->buscarDados("id_usuario = {$_GET['i']}")[0];
+            $usuario->cod_status_usuario = 0;
+            $usuario->salvarDados();
+        }
 
 
 ?>
@@ -47,7 +51,7 @@
                         <td>" . $usuario->email_usuario . "</td>
                         <td>" . $usuario->getTipoUsuario()->desc_tipo_us . "</td>
                         <td><a href='cadastro.php?i=". $usuario->id_usuario."'>Editar</a></td>
-                        <td><a href='listarUsuario'>Eliminar</a></td>
+                        <td><a href='listarUsuario.php?i=".$usuario->id_usuario."'>Eliminar</a></td>
                     </tr>"; 
                 }
             } else {

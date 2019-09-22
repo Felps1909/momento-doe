@@ -379,3 +379,30 @@ footer .rodape a {
   margin: 0 auto;
   display: block;
 }
+a {
+  text-decoration: none;
+}
+.publicacoes {
+  background-color: white;
+  width: 100%;
+}
+.publicacoes .pessoa {
+  width: 75%;
+  margin: 20px 35px;
+}
+.us {
+  width: 16%;
+  float: left;
+  padding: 10px 10px;
+}
+.publicacoes p {
+  padding-top: 25px;
+  margin-left: 50px;
+}
+.publicacoes .desc {
+  padding-top: 0px;
+  margin-left: 15px;
+}
+main {
+  margin-bottom: 80px;
+}

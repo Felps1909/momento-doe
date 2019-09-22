@@ -23,6 +23,7 @@
 
 <table>
     <thead>
+        <h3>Usuarios:</h3>
         <tr>
             <td>Nome</td>
             <td>Email</td>
@@ -41,7 +42,8 @@
                         <td>" . $usuario["nome_usuario"] . "</td>
                         <td>" . $usuario["email_usuario"] . "</td>
                         <td>" . $usuario["desc_tipo_us"] . "</td>
-                        <td>Açoes</td>
+                        <td><a href='cadastro.php?i=". $usuario["id_usuario"]."'>Editar</a></td>
+                        <td><a href='#'>Eliminar</a></td>
                     </tr>"; 
                 }
             } else {

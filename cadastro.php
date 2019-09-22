@@ -6,6 +6,12 @@
 ?>
 
      <?php
+
+        if(isset($_GET['i'])){
+            $usuario = $usuario->buscarDados("id_usuario = {$_GET['i']}")[0];
+             
+        }
+
         if(isset($_POST['nome_usuario'])){
             
             $nome_usuario = addslashes($_POST['nome_usuario']);
@@ -90,21 +96,21 @@
        <div id="pessoa">
         
                 <label>Nome</label>
-                <input class="input" type="text" name="nome_usuario">
+                <input class="input" type="text" name="nome_usuario" value="<?php echo $usuario->nome_usuario;?>">
 
                 
 
 
                 <label>E-mail</label>
-                <input class="input" type="text" name="email_usuario">
+                <input class="input" type="text" name="email_usuario" value="<?php echo $usuario->email_usuario;?>">
 
                 
 
                 <label>Senha</label>
-                <input class="input" type="password" name="senha_usuario">
+                <input class="input" type="password" name="senha_usuario" value="<?php echo $usuario->senha_usuario;?>">
 
                  <label>Data Nascimento</label>
-                <input class="input" type="date" name="data_usuario">
+                <input class="input" type="date" name="data_usuario" value="<?php echo $usuario->data_nascimento;?>">
                 
 
                 <input type="Submit" name="Enviar" value="Enviar">

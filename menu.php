@@ -55,9 +55,9 @@
                 <div class="opac_submenu">
                     <div class="submenu">
                         <ul>
-                            <li><a href="index.php">Home</a></li>
-                            <li><a href="doacoes.php">Doacao</a></li>
-                            <li><a href="ongs.php">Ongs</a></li>
+                            <li><a href="index.php">HOME</a></li>
+                            <li><a href="doacoes.php">DOAÇÃO</a></li>
+                            <li><a href="ongs.php">ONGS</a></li>
                         </ul>
                     </div>
                 </div>

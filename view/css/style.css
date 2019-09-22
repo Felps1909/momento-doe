@@ -264,6 +264,8 @@ header {
   border-radius: 5px;
   margin-left: 85px;
   color: white;
+  margin: 0 auto;
+  display: block;
 }
 /* Esconde o input */
 input[type="file"] {
@@ -332,6 +334,7 @@ input[type="file"] {
 }
 footer {
   position: fixed;
+  z-index: 3;
   left: 0;
   bottom: 0;
   width: 100%;
@@ -349,4 +352,30 @@ footer .rodape a {
 }
 .rodape a:nth-child(1) {
   margin-left: 1px;
+}
+.div-depoimento {
+  background: url("../imagens/depoimento.jpg") no-repeat;
+  background-size: cover;
+  height: 400px;
+  margin-top: -39px;
+}
+.div-depoimento h1 {
+  padding-top: 55px;
+  color: white;
+  padding-left: 20px;
+}
+.div-depoimento p {
+  color: white;
+  padding-top: 15px;
+  padding-left: 20px;
+}
+.div-depoimento button {
+  background-color: #9c7ea1;
+  border: 1px solid white;
+  padding: 5px 20px;
+  border-radius: 5px;
+  margin-left: 85px;
+  color: white;
+  margin: 0 auto;
+  display: block;
 }

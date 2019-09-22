@@ -2,27 +2,34 @@
     require_once "menu.php";
 ?>
 <main>
-    <article>
-        <section>
-            <img src="view/imagens/depoimento.jpg">
-            <div class="dep">
-                <h2>DEPOIMENTOS</h2>
-                <br>
-                <span>Inspire outras pessoas</span>
-                <br>
-                <span>A fazerem o bem</span>
-                <br>
-            <!-- RESERVADO BOTAO-->
-            
-                <!-- FIM RESERVA BOTAO-->
-                <br>
-                <span>Dê seu depoimento</span>
-                <br>
-                <span>Conte-nos como foi fazer o bem</span>
-                </div>        
-            
-        </section>
-    </article>
+     <div class="div-depoimento">
+         <h1>DEPOIMENTOS</h1>
+        <!-- <img src="view/imagens/doacao.png" class = "img-doacao"> -->
+        <p>Inspire outras pessoas<p>
+        <p>A fazer o bem<p>
+        <button onClick="Mudarestado()" class="dar-depoimento">DAR DEPOIMENTO</button>
+        <p>Dê seu depoimento!</p>
+        <p>Conte-nos como foi fazer o bem!<p>
+
+            <div id="doar" class="doar hidden">
+                <form method="post">
+                    <textarea name="depoimento">
+            Escreva aqui seu depoimento!
+                    </textarea>
+                    <input type="file" name="img-doacao">
+                   
+                    <input class ="btn-doar" type = "submit" name="Enviar">
+                </form>
+            </div>
+    </div>
+    
+    <script>    
+        function Mudarestado(el) {
+            document.getElementById("doar").classList.toggle("hidden");
+        }
+        
+    </script>
+    
     <article>
         <section class="depo-postite">
             <div class="postite">
@@ -46,3 +53,6 @@
 
     </article>
 </main>
+<?php
+    require_once "footer.php";
+?>

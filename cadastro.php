@@ -137,7 +137,9 @@
             
        </div>
        </form>
-
+<?php
+    require_once "footer.php";
+?>
         <script>
 
         function toggleRegister(el){

@@ -33,6 +33,9 @@
    
 
  ?>
+ <head>
+ <title>Login</title>
+ </head>
 <style>
         body{
             background-color: #E2C0FF;

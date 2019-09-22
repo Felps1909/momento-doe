@@ -49,6 +49,9 @@
             }
         }
     ?>
+     <head>
+ <title>Cadastro</title>
+ </head>
     <style>
         body{
             background-color: #E2C0FF;

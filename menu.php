@@ -84,3 +84,9 @@
                 </section>
             </article>
         </header>
+        <div class="exibmsg">
+        <p>Desculpe! Momento Doe esta disponivel somente para mobile.<p>
+        <img src="view/imagens/logomomento.png">
+        </div>  
+    </body>
+</html>

@@ -10,7 +10,12 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Oswald|Roboto&display=swap" rel="stylesheet">
     <title>Home - Momento Doe</title>
 </head>
+<div class="exibmsg">
+        <p>Desculpe! Momento Doe esta disponivel somente para mobile.<p>
+        <img src="view/imagens/logomomento.png">
+    </div>
 <main>
+    
     <div class="div-home">
         <p class="p1">O que você<p>
         <p class="p2">Pode doar hoje?<p>

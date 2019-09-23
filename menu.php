@@ -9,8 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" type="image/x-icon" href="view/imagens/logomomento.png">
-    <link rel="stylesheet" media="screen and (min-width:481px)" href="view/css/estilo_mensagemHome.css">
-    <link href="view/css/style.css" rel="stylesheet" type="text/css">
+   
+    <link href="view/css/style.css"   rel="stylesheet" type="text/css">
     
 </head>
 <body>

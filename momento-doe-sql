@@ -88,7 +88,7 @@ CREATE TABLE `doacao` (
   KEY `id_tipo_doa` (`id_tipo_doa`),
   CONSTRAINT `doacao_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`),
   CONSTRAINT `doacao_ibfk_2` FOREIGN KEY (`id_tipo_doa`) REFERENCES `tipo_doacao` (`id_tipo_doa`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `bd_momento_doe`.`doacao`
@@ -177,13 +177,15 @@ CREATE TABLE `tipo_doacao` (
   `cod_status_tipo_doa` varchar(60) DEFAULT NULL,
   `desc_tipo_doa` varchar(60) DEFAULT NULL,
   PRIMARY KEY (`id_tipo_doa`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `bd_momento_doe`.`tipo_doacao`
 --
 
 /*!40000 ALTER TABLE `tipo_doacao` DISABLE KEYS */;
+INSERT INTO `tipo_doacao` (`id_tipo_doa`,`cod_status_tipo_doa`,`desc_tipo_doa`) VALUES 
+ (1,'A','Roupa');
 /*!40000 ALTER TABLE `tipo_doacao` ENABLE KEYS */;
 
 
@@ -205,9 +207,8 @@ CREATE TABLE `tipo_usuario` (
 
 /*!40000 ALTER TABLE `tipo_usuario` DISABLE KEYS */;
 INSERT INTO `tipo_usuario` (`cod_tipo_us`,`desc_tipo_us`,`cod_status_tipo_us`) VALUES 
- (1,'Ongs','A'),
- (2,'Empresa','A'),
- (3,'Pessoa','A');
+ (1,'Empresa','A'),
+ (2,'Pessoa','A');
 /*!40000 ALTER TABLE `tipo_usuario` ENABLE KEYS */;
 
 
@@ -219,17 +220,18 @@ DROP TABLE IF EXISTS `usuario`;
 CREATE TABLE `usuario` (
   `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
   `nome_usuario` varchar(60) DEFAULT NULL,
-  `senha_usuario` varchar(60) DEFAULT NULL,
+  `senha_usuario` varchar(64) DEFAULT NULL,
   `tel_usuario` varchar(12) DEFAULT NULL,
   `email_usuario` varchar(40) DEFAULT NULL,
   `url_foto_usuario` varchar(40) DEFAULT NULL,
-  `cod_status_usuario` tinyint(1) NOT NULL DEFAULT '1',
+  `cod_status_usuario` tinyint(1) DEFAULT '1',
   `cod_tipo_us` int(11) NOT NULL,
   `data_nascimento` date NOT NULL,
   PRIMARY KEY (`id_usuario`),
+  UNIQUE KEY `Index_3` (`email_usuario`),
   KEY `cod_tipo_us` (`cod_tipo_us`),
   CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`cod_tipo_us`) REFERENCES `tipo_usuario` (`cod_tipo_us`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `bd_momento_doe`.`usuario`
@@ -237,7 +239,10 @@ CREATE TABLE `usuario` (
 
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
 INSERT INTO `usuario` (`id_usuario`,`nome_usuario`,`senha_usuario`,`tel_usuario`,`email_usuario`,`url_foto_usuario`,`cod_status_usuario`,`cod_tipo_us`,`data_nascimento`) VALUES 
- (1,'teste','1234',NULL,'teste@teste.com',NULL,1,3,'2019-09-27');
+ (1,'teste32','a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3',NULL,'teste@teste.com',NULL,0,1,'2019-09-27'),
+ (2,'Felipe','a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3',NULL,'felipe@gmail.com',NULL,1,2,'2001-09-19'),
+ (7,'Felipe','a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3',NULL,'felipe2@gmail.com',NULL,1,2,'2001-09-19'),
+ (8,'teste3','a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3',NULL,'teste3@teste.com',NULL,1,2,'2019-09-05');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

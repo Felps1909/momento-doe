@@ -34,8 +34,10 @@ class Usuario
             $query->bindValue(':status',$this->cod_status_usuario);
             $query->bindValue(':codtip',$this->cod_tipo_us);
             $query->bindValue(':d',$this->data_nascimento);
+            $result = $query->execute();
+            $this->id_usuario = Connect::getInstance()->lastInsertId();
 
-            return $query->execute();
+            return $result;
         }else{
             $query = Connect::getInstance()->prepare("UPDATE usuario set nome_usuario = :n, senha_usuario = :s,
                tel_usuario = :t ,email_usuario = :e, url_foto_usuario = :f, cod_status_usuario = :status , cod_tipo_us = :codtip ,data_nascimento = :d  
@@ -133,7 +135,7 @@ class Usuario
         if($query->rowCount()>0){
             
             $dados = $query->fetch();
-            // session_start();
+            
             $_SESSION['id_usuario'] = $dados['id_usuario'];
 
 

@@ -1,12 +1,11 @@
 <?php
-    if(!session_start()){
-        session_start();
-    }   
+require_once "menu.php";
+  
     
      use Source\Model\Usuario;
      
     $usuario = new Usuario();
-    require_once "menu.php";
+    
 ?>
     <?php
 

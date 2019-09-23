@@ -1,5 +1,6 @@
 <?php
      require_once "vendor/autoload.php";
+     session_start();
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

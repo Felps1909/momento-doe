@@ -1,8 +1,8 @@
 <?php
-    
+    require_once "menu.php";
     use Source\Model\Usuario;
    $usuario = new Usuario();
- require_once "menu.php";
+ 
 ?>
 
      <?php
@@ -38,6 +38,7 @@
                     $usuario->cod_tipo_us = $tipo_usuario;
                     $usuario->data_nascimento = $data_usuario;
                     $usuario->salvarDados();
+                    $_SESSION['id_usuario'] = $usuario->id_usuario;
 
                     echo"<script>";
                     echo "alert('Cadastrado com Sucesso')";

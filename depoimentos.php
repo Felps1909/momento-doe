@@ -1,5 +1,6 @@
 <?php
     require_once "menu.php";
+    // var_dump($_SESSION);
 ?>
 <main>
      <div class="div-depoimento">
@@ -25,7 +26,12 @@
     
     <script>    
         function Mudarestado(el) {
+            <?php if(isset($_SESSION['id_usuario'])){ ?>
             document.getElementById("doar").classList.toggle("hidden");
+            <?php } else { ?>
+            alert("Você precisa estar logado");
+            
+            <?php } ?>
         }
         
     </script>

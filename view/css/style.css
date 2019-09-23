@@ -260,7 +260,7 @@ header {
 .div-doacao button {
   background-color: #9c7ea1;
   border: 1px solid white;
-  padding: 5px 20px;
+  padding: 10px 20px;
   border-radius: 5px;
   margin-left: 85px;
   color: white;
@@ -372,7 +372,7 @@ footer .rodape a {
 .div-depoimento button {
   background-color: #9c7ea1;
   border: 1px solid white;
-  padding: 5px 20px;
+  padding: 10px 20px;
   border-radius: 5px;
   margin-left: 85px;
   color: white;
@@ -405,4 +405,130 @@ a {
 }
 main {
   margin-bottom: 80px;
+}
+
+.div-ongs {
+  background: url("../imagens/ongs.png") no-repeat;
+  background-size: cover;
+  height: 400px;
+  margin-top: -39px;
+}
+.div-ongs h1 {
+  padding-top: 55px;
+  color: white;
+  padding-left: 20px;
+}
+.div-ongs p {
+  color: white;
+  padding-top: 15px;
+  padding-left: 20px;
+}
+.div-ongs button {
+  background-color: #9c7ea1;
+  border: 1px solid white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-left: 85px;
+  color: white;
+  margin: 0 auto;
+  display: block;
+}
+.div-home {
+  background: url("../imagens/HOME2.png") no-repeat;
+  background-size: cover;
+  height: 400px;
+  margin-top: -39px;
+}
+.div-home p {
+  color: white;
+  text-align: center;
+  font-size: 30px;
+}
+.p1 {
+  padding-top: 45px;
+}
+.p2 {
+  padding-bottom: 25px;
+}
+.p3 {
+  padding-top: 30px;
+}
+/* .p2 {
+  padding-bottom: 25px;
+} */
+.div-home button {
+  background-color: #9c7ea1;
+  border: 1px solid white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-left: 85px;
+  color: white;
+  margin: 0 auto;
+  display: block;
+}
+.logomomento {
+  width: 100%;
+}
+.motivacao {
+  width: 100%;
+  background-color: #8800ff;
+  color: white;
+}
+.oque {
+  text-align: center;
+  padding: 20px 20px;
+}
+.oque p {
+  padding-top: 5px;
+  padding-bottom: 20px;
+}
+.oque img {
+  padding: 10px 0;
+}
+.velhacadeira {
+  width: 100%;
+  margin-top: -50px;
+}
+.depoimento-home {
+  width: 100%;
+  background-color: #ebf5ff;
+  padding-bottom: 5px;
+}
+.depoimento-home h4 {
+  text-align: center;
+  padding: 10px 0;
+}
+.dep-usuarios {
+  width: 85%;
+  background-color: white;
+  border: 1px solid black;
+  text-align: center;
+  margin-left: 20px;
+  margin-bottom: 25px;
+}
+.grandes-herois h4 {
+  text-align: center;
+  padding: 10px 0;
+  color: #5e5e5e;
+}
+.us-rank {
+  width: 49%;
+  display: inline-block;
+  text-align: center;
+}
+.us-rank img {
+  width: 80px;
+}
+/* .us-rank .nota {
+} */
+/* .us-rank .nome {
+  padding-left: 23px;
+} */
+.pode-doar {
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.imgdoar {
+  width: 100%;
 }

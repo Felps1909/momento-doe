@@ -2,7 +2,7 @@
     if(!session_start()){
         session_start();
     }   
-     require_once "vendor/autoload.php";
+    
      use Source\Model\Usuario;
      
     $usuario = new Usuario();

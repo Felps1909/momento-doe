@@ -15,7 +15,7 @@
     }
 </style>
 <main>
-    <div class="div-doacao">
+    <div class="div-ongs">
          <h1>ONGs</h1>
         <!-- <img src="view/imagens/doacao.png" class = "img-doacao"> -->
         <p>Ajude-nos a fazer<p>

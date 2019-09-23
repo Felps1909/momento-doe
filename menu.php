@@ -1,3 +1,6 @@
+<?php
+     require_once "vendor/autoload.php";
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -45,7 +48,7 @@
                <section class="menucima">
                     <span id="bars" onclick="openNav()">&#9776;</span> 
 
-                    <img class="logo-menu" src="view/imagens/logodomenu.png">
+                    <a href="index.php"><img class="logo-menu" src="view/imagens/logodomenu.png"></a>
 
                     <img class="btn-perfil" src="view/imagens/perfil.png">
                 </section>

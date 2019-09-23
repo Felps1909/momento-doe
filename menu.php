@@ -23,6 +23,21 @@
                             &times;
                         </a>
                     <div class="overlay-content">
+                        <?php
+                            if(isset($_SESSION['id_usuario'])){
+                                echo '<hr>';
+                                echo '<a href="Logout.php?token='.md5(session_id()).'">Sair</a>';
+                                echo '<hr>';
+                                echo ' <a href="#">Ranking</a>';
+                                echo '<hr>';
+                                echo '<a href="quem-somos.php">Quem Somos</a>';
+                                echo '<hr>';
+                                echo '<a href="depoimentos.php">Depoimentos</a>';
+                                echo '<hr>';
+                            }else{
+
+                            
+                        ?>
                         <hr>
                         <a href="login.php">Login</a>
                         <hr>
@@ -33,6 +48,7 @@
                         <a href="quem-somos.php">Quem Somos</a>
                         <hr>
                         <a href="depoimentos.php">Depoimentos</a>
+                        <?php } ?>
                     </div>
                     </div>
                     

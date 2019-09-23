@@ -42,8 +42,13 @@
         <p>Roupa</p>
     </div>
     <script>    
-        function Mudarestado(el) {
+         function Mudarestado(el) {
+            <?php if(isset($_SESSION['id_usuario'])){ ?>
             document.getElementById("doar").classList.toggle("hidden");
+            <?php } else { ?>
+            alert("Você precisa estar logado");
+            
+            <?php } ?>
         }
         function Mudarestado2(el2) {
             document.getElementById("filtro").classList.toggle("hidden");

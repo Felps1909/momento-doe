@@ -535,6 +535,8 @@ main {
 .exibmsg{
   display: none;
 }
+
+}
 @media only screen and (min-width:481px){
   .exibmsg{
     display:block;

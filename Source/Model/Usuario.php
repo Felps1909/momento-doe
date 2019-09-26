@@ -14,16 +14,16 @@ class Usuario
     public $url_foto_usuario;
     public $cod_status_usuario = 1;
     public $cod_tipo_us;
-    public $data_nascimento;
+    public $id_doc;
 
     public function salvarDados()
     {
         //VERIFICAÇÃO DE USUARIO, VERIFICA SE JA N HÁ USUARIO CADASTRADO
-        $this->data_nascimento = implode("-",array_reverse(explode("/",$this->data_nascimento)));
+        
         if(is_null($this->id_usuario)){
 
             $query = Connect::getInstance()->prepare("INSERT INTO usuario (nome_usuario, senha_usuario,tel_usuario,email_usuario,
-            url_foto_usuario,cod_status_usuario, cod_tipo_us, data_nascimento)
+            url_foto_usuario,cod_status_usuario, cod_tipo_us, id_doc)
             values(:n,:s,:t,:e,:f,:status,:codtip,:d)");
 
             $query->bindValue(':n',$this->nome_usuario);
@@ -33,14 +33,14 @@ class Usuario
             $query->bindValue(':f',$this->url_foto_usuario);
             $query->bindValue(':status',$this->cod_status_usuario);
             $query->bindValue(':codtip',$this->cod_tipo_us);
-            $query->bindValue(':d',$this->data_nascimento);
+            $query->bindValue(':d',$this->id_doc);
             $result = $query->execute();
             $this->id_usuario = Connect::getInstance()->lastInsertId();
 
             return $result;
         }else{
             $query = Connect::getInstance()->prepare("UPDATE usuario set nome_usuario = :n, senha_usuario = :s,
-               tel_usuario = :t ,email_usuario = :e, url_foto_usuario = :f, cod_status_usuario = :status , cod_tipo_us = :codtip ,data_nascimento = :d  
+               tel_usuario = :t ,email_usuario = :e, url_foto_usuario = :f, cod_status_usuario = :status , cod_tipo_us = :codtip ,id_doc = :d  
                 where id_usuario = :uid
                 ");
 
@@ -52,7 +52,7 @@ class Usuario
             $query->bindValue(':f',$this->url_foto_usuario);
             $query->bindValue(':status',$this->cod_status_usuario);
             $query->bindValue(':codtip',$this->cod_tipo_us);
-            $query->bindValue(':d',$this->data_nascimento);
+            $query->bindValue(':d',$this->id_doc);
             
             return $query->execute();
         }
@@ -89,7 +89,7 @@ class Usuario
             $usuario->url_foto_usuario = $u['url_foto_usuario'];
             $usuario->cod_status_usuario = $u['cod_status_usuario'];
             $usuario->cod_tipo_us = $u['cod_tipo_us'];
-            $usuario->data_nascimento = $u['data_nascimento'];
+            $usuario->id_doc = $u['id_doc'];
             $array[] = $usuario;
         }
         return $array;
@@ -108,14 +108,14 @@ class Usuario
             return false;
         
         }else{
-            $query = Connect::getInstance()->prepare("INSERT INTO usuario (nome_usuario, senha_usuario,email_usuario, data_nascimento, cod_tipo_us)
+            $query = Connect::getInstance()->prepare("INSERT INTO usuario (nome_usuario, senha_usuario,email_usuario, id_doc, cod_tipo_us)
             values(:n,:s,:e,:d,:t)
         ");
 
             $query->bindValue(':n',$nome_usuario);
             $query->bindValue(':s',$senha_usuario);
             $query->bindValue(':e',$email_usuario);
-            $query->bindValue(':d',$data_usuario);
+            $query->bindValue(':d',$id_doc);
             $query->bindValue(':t',$tipo_usuario);
             return $query->execute();
             
@@ -135,12 +135,17 @@ class Usuario
         if($query->rowCount()>0){
             
             $dados = $query->fetch();
-            
-            $_SESSION['id_usuario'] = $dados['id_usuario'];
+            $_SESSION['logado'] = true;
+            $_SESSION['logado'] = $dados['id_usuario'];
+            $_SESSION['logado'] = $dados['nome_usuario'];
+            $_SESSION['logado'] = $dados['senha_usuario'];
+            $_SESSION['logado'] = $dados['tel_usuario'];
+            $_SESSION['logado'] = $dados['email_usuario'];
+            $_SESSION['logado'] = $dados['url_foto_usuario'];
+            $_SESSION['logado'] = $dados['cod_status_usuario'];
+            $_SESSION['logado'] = $dados['cod_tipo_us'];
+            $_SESSION['logado'] = $dados['id_doc'];
 
-
-           
-            
             return true;
         }else{
             return false;

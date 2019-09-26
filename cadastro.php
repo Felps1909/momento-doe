@@ -18,7 +18,7 @@
             $nome_usuario = addslashes($_POST['nome_usuario']);
             $senha_usuario = hash("sha256",addslashes($_POST['senha_usuario']));
             $email_usuario = addslashes($_POST['email_usuario']);
-			$data_usuario = addslashes($_POST['data_usuario']);
+			$id_doc = addslashes($_POST['id_doc']);
 			$tipo_usuario = (int)$_POST['tipos'];
             //$tel_usuario = addslashes($_POST['tel_usuario']);
             
@@ -36,7 +36,7 @@
                     //$usuario->url_foto_usuario;
                     //$usuario->cod_status_tipo_us;
                     $usuario->cod_tipo_us = $tipo_usuario;
-                    $usuario->data_nascimento = $data_usuario;
+                    $usuario->id_doc = $id_doc;
                     $usuario->salvarDados();
                     $_SESSION['id_usuario'] = $usuario->id_usuario;
 
@@ -71,44 +71,31 @@
             </div> 
             <input type="hidden" name="id_usuario" value ="<?php echo $usuario->id_usuario;?>" >
        
-       <div id="empresa" class="hidden">
-            
-                <label>Razão Social</label>
-                
-                <input class="input" type="text" name="nome_empresa">
+       <div id="empresa" class="hidden"> 
+       
+                <label>Nome</label>
+                <input class="input" type="text" name="nome_usuario" value="<?php echo $usuario->nome_usuario;?>">
 
                 
 
-                <label>CNPJ</label>
-                
-                <input class="input" type="text" name="cnpj_empresa">
-                
-                 
-            
-                <label>Cidade</label>
-                
-                <input class="input" type="text" name="cidade_empresa">
-
-                
-            
-                <label>Endereço</label>
-                
-                <input class="input" type="text" name="endereco_empresa">
-
-                
 
                 <label>E-mail</label>
-                
-                <input class="input" type="text" name="email_empresa">
+                <input class="input" type="text" name="email_usuario" value="<?php echo $usuario->email_usuario;?>">
 
                 
 
                 <label>Senha</label>
-                
-                <input class="input" type="password" name="senha_empresa">
-                
+                <input class="input" type="password" name="senha_usuario" >
 
+               
+                              
+                <label>CNPJ</label>
+                <input class="input" type="text" name="id_doc">
+
+                
                 <input type="Submit" name="Enviar" value="Enviar">
+                 
+            
                
             
        </div>
@@ -128,8 +115,9 @@
                 <label>Senha</label>
                 <input class="input" type="password" name="senha_usuario" >
 
-                 <label>Data Nascimento</label>
-                <input class="input" type="date" name="data_usuario" value="<?php echo $usuario->data_nascimento;?>">
+                <label>CPF</label>
+                <input class="input" type="text" name="id_doc">
+                
                 
 
                 <input type="Submit" name="Enviar" value="Enviar">

@@ -13,17 +13,17 @@ class Usuario
     public $email_usuario;
     public $url_foto_usuario;
     public $cod_status_usuario = 1;
-    public $cod_tipo_us;
-    public $id_doc;
+    public $id_tipo_us;
+    // public $data_nascimento;
 
     public function salvarDados()
     {
         //VERIFICAÇÃO DE USUARIO, VERIFICA SE JA N HÁ USUARIO CADASTRADO
-        
+        // $this->data_nascimento = implode("-",array_reverse(explode("/",$this->data_nascimento)));
         if(is_null($this->id_usuario)){
 
             $query = Connect::getInstance()->prepare("INSERT INTO usuario (nome_usuario, senha_usuario,tel_usuario,email_usuario,
-            url_foto_usuario,cod_status_usuario, cod_tipo_us, id_doc)
+            url_foto_usuario,cod_status_usuario, id_tipo_us)
             values(:n,:s,:t,:e,:f,:status,:codtip,:d)");
 
             $query->bindValue(':n',$this->nome_usuario);
@@ -32,15 +32,15 @@ class Usuario
             $query->bindValue(':e',$this->email_usuario);
             $query->bindValue(':f',$this->url_foto_usuario);
             $query->bindValue(':status',$this->cod_status_usuario);
-            $query->bindValue(':codtip',$this->cod_tipo_us);
-            $query->bindValue(':d',$this->id_doc);
+            $query->bindValue(':codtip',$this->id_tipo_us);
+            // $query->bindValue(':d',$this->data_nascimento);
             $result = $query->execute();
             $this->id_usuario = Connect::getInstance()->lastInsertId();
 
             return $result;
         }else{
             $query = Connect::getInstance()->prepare("UPDATE usuario set nome_usuario = :n, senha_usuario = :s,
-               tel_usuario = :t ,email_usuario = :e, url_foto_usuario = :f, cod_status_usuario = :status , cod_tipo_us = :codtip ,id_doc = :d  
+               tel_usuario = :t ,email_usuario = :e, url_foto_usuario = :f, cod_status_usuario = :status , id_tipo_us = :codtip ,data_nascimento = :d  
                 where id_usuario = :uid
                 ");
 
@@ -51,8 +51,8 @@ class Usuario
             $query->bindValue(':e',$this->email_usuario);
             $query->bindValue(':f',$this->url_foto_usuario);
             $query->bindValue(':status',$this->cod_status_usuario);
-            $query->bindValue(':codtip',$this->cod_tipo_us);
-            $query->bindValue(':d',$this->id_doc);
+            $query->bindValue(':codtip',$this->id_tipo_us);
+            // $query->bindValue(':d',$this->data_nascimento);
             
             return $query->execute();
         }
@@ -60,11 +60,11 @@ class Usuario
     }
 
     public function getTipoUsuario(){
-        $query = Connect::getInstance()->query("SELECT * FROM tipo_usuario where cod_tipo_us = $this->cod_tipo_us");
+        $query = Connect::getInstance()->query("SELECT * FROM tipo_usuario where cod_tipo_us = $this->id_tipo_us");
         $t = $query->fetchAll()[0];
 
         $tipo_usuario = new TipoUsuario();
-        $tipo_usuario->cod_tipo_us = $t['cod_tipo_us'];
+        $tipo_usuario->id_tipo_us = $t['id_tipo_us'];
         $tipo_usuario->desc_tipo_us = $t['desc_tipo_us'];
         $tipo_usuario->cod_status_tipo_us = $t['cod_status_tipo_us'];
 
@@ -75,9 +75,9 @@ class Usuario
     {
         $array = [];
         if(is_null($condition)){
-            $query = Connect::getInstance()->query("SELECT U.*, TU.desc_tipo_us from usuario U LEFT JOIN tipo_usuario TU ON TU.cod_tipo_us = U.cod_tipo_us where U.cod_status_usuario = 1");
+            $query = Connect::getInstance()->query("SELECT U.*, TU.desc_tipo_us from usuario U LEFT JOIN tipo_usuario TU ON TU.id_tipo_us = U.id_tipo_us where U.cod_status_usuario = 1");
         } else {
-            $query = Connect::getInstance()->query("SELECT U.*, TU.desc_tipo_us from usuario U LEFT JOIN tipo_usuario TU ON TU.cod_tipo_us = U.cod_tipo_us where $condition");
+            $query = Connect::getInstance()->query("SELECT U.*, TU.desc_tipo_us from usuario U LEFT JOIN tipo_usuario TU ON TU.id_tipo_us = U.id_tipo_us where $condition");
         }
         foreach($query->fetchAll() as $u){
             $usuario = new Usuario();
@@ -88,17 +88,17 @@ class Usuario
             $usuario->email_usuario = $u['email_usuario'];
             $usuario->url_foto_usuario = $u['url_foto_usuario'];
             $usuario->cod_status_usuario = $u['cod_status_usuario'];
-            $usuario->cod_tipo_us = $u['cod_tipo_us'];
-            $usuario->id_doc = $u['id_doc'];
+            $usuario->cod_tipo_us = $u['id_tipo_us'];
+            // $usuario->data_nascimento = $u['data_nascimento'];
             $array[] = $usuario;
         }
         return $array;
     }
 
-    public function cadastrarUsuario($nome_usuario, $senha_usuario, $email_usuario, $data_usuario, $tipo_usuario) //Inserção 
+    public function cadastrarUsuario($nome_usuario, $senha_usuario, $email_usuario, $tipo_usuario) //Inserção 
     {
         //VERIFICAÇÃO DE USUARIO, VERIFICA SE JA N HÁ USUARIO CADASTRADO
-        $data_usuario = implode("-",array_reverse(explode("/",$data_usuario)));
+        // $data_usuario = implode("-",array_reverse(explode("/",$data_usuario)));
 
         $query = Connect::getInstance()->prepare("SELECT id_usuario from usuario where email_usuario = :e");
         $query->bindValue(":e",$email_usuario);
@@ -108,14 +108,14 @@ class Usuario
             return false;
         
         }else{
-            $query = Connect::getInstance()->prepare("INSERT INTO usuario (nome_usuario, senha_usuario,email_usuario, id_doc, cod_tipo_us)
+            $query = Connect::getInstance()->prepare("INSERT INTO usuario (nome_usuario, senha_usuario,email_usuario,  id_tipo_us)
             values(:n,:s,:e,:d,:t)
         ");
 
             $query->bindValue(':n',$nome_usuario);
             $query->bindValue(':s',$senha_usuario);
             $query->bindValue(':e',$email_usuario);
-            $query->bindValue(':d',$id_doc);
+            // $query->bindValue(':d',$data_usuario);
             $query->bindValue(':t',$tipo_usuario);
             return $query->execute();
             
@@ -135,17 +135,12 @@ class Usuario
         if($query->rowCount()>0){
             
             $dados = $query->fetch();
-            $_SESSION['logado'] = true;
-            $_SESSION['logado'] = $dados['id_usuario'];
-            $_SESSION['logado'] = $dados['nome_usuario'];
-            $_SESSION['logado'] = $dados['senha_usuario'];
-            $_SESSION['logado'] = $dados['tel_usuario'];
-            $_SESSION['logado'] = $dados['email_usuario'];
-            $_SESSION['logado'] = $dados['url_foto_usuario'];
-            $_SESSION['logado'] = $dados['cod_status_usuario'];
-            $_SESSION['logado'] = $dados['cod_tipo_us'];
-            $_SESSION['logado'] = $dados['id_doc'];
+            
+            $_SESSION['id_usuario'] = $dados['id_usuario'];
 
+
+           
+            
             return true;
         }else{
             return false;

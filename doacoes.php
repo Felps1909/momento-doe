@@ -39,7 +39,28 @@
         <button onClick="Mudarestado2()">Filtro</button>
     </div>
     <div id="filtro" class="itens-filtro hidden">
-        <p>Roupa</p>
+        <figure class="tempo">
+            <img src="view/imagens/tempo.png">
+            <figcaption>Tempo</figcaption>
+        </figure>
+        <figure class="roupa">
+            <img src="view/imagens/roupas.png">
+            <figcaption>Roupas</figcaption>
+        </figure>
+        <figure class="comida">
+            <img src="view/imagens/comida.png">
+            <figcaption>Comida</figcaption>
+        </figure>
+        <figure class="dinheiro">
+            <img src="view/imagens/dinheiro.png">
+            <figcaption>Dinheiro</figcaption>
+        </figure>
+     
+        <figure class="outros">
+            <img src="view/imagens/outros.png">
+            <figcaption>Outros</figcaption>
+        </figure>
+
     </div>
     <script>    
          function Mudarestado(el) {

@@ -2,20 +2,17 @@
   margin: 0;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
-  /*max-width: 320px;
-    max-height: 480px;*/
 }
 #container {
   width: 100%;
-  min-width: 320px;
 }
 /************ MENU  ***********/
 
 .overlay {
   height: 100%;
   width: 0%;
-  position: fixed;
-  z-index: 2;
+  position: absolute;
+  z-index: 3;
   top: 0;
   right: 0;
   background-color: rgb(0, 0, 0);
@@ -27,7 +24,6 @@
 .overlay-content {
   position: relative;
   top: 5%;
-  /*width: 100%;*/
   text-align: center;
   margin-top: 30px;
 }
@@ -73,10 +69,6 @@ header {
   font-weight: bold;
   color: white;
   cursor: pointer;
-  /*display: flex;
-    float: right;
-    margin: 15px;
-    margin-top: -5px*/
 }
 .menucima {
   display: flex;
@@ -286,20 +278,19 @@ input[type="file"] {
   background: #f09c42;
   width: 280px;
   height: 180px;
-  border: 3px dashed white;
+  border: 5px dashed #f1b97e;
   margin-left: 15px;
   margin-top: -80px;
   position: absolute;
   z-index: 2;
 }
-.doar textarea {
+.doar textarea{
   border: none;
   background-color: #f2c188;
   font-size: 13px;
   padding-left: -10px;
   width: 249px;
   height: 80px;
-  color: black;
   margin: 10px 15px;
 }
 .btn-doar {
@@ -357,7 +348,7 @@ footer .rodape a {
   background: url("../imagens/depoimento.jpg") no-repeat;
   background-size: cover;
   height: 400px;
-  margin-top: -39px;
+  margin-top: -37px;
 }
 .div-depoimento h1 {
   padding-top: 55px;
@@ -404,6 +395,7 @@ a {
   margin-left: 15px;
 }
 main {
+  width: 100%;
   margin-bottom: 80px;
 }
 
@@ -432,39 +424,131 @@ main {
   color: white;
   margin: 0 auto;
   display: block;
+  opacity: 0.8;
+}
+.img-home{
+  width: 100%;
+  height: 440px;
+  margin-top: -37px;
+  z-index: 0;
 }
 .div-home {
-  background: url("../imagens/HOME2.png") no-repeat;
-  background-size: cover;
-  height: 400px;
-  margin-top: -39px;
+  /*background: url("../imagens/HOME2.png") no-repeat;
+  background-size: cover;*/
+  z-index: 1;
+  width: 100%;
+  /*height: 400px;
+  margin-top: -37px;*/
 }
 .div-home p {
   color: white;
   text-align: center;
   font-size: 30px;
+  
+  z-index: 2;
+  
 }
 .p1 {
-  padding-top: 45px;
+  position: absolute;
+  top: 100px;
+  /*left: 85px;*/
+  left: 28vw;
 }
+
 .p2 {
-  padding-bottom: 25px;
+  position: absolute;
+  top: 138px;
+  /*left: 59px;*/
+  left: 20vw;
 }
 .p3 {
-  padding-top: 30px;
+  position: absolute;
+  top: 277px;
+  /*left: 91px;*/
+  left: 32vw;
 }
-/* .p2 {
-  padding-bottom: 25px;
-} */
+.p4{
+  position: absolute;
+  top: 315px;
+  /*left: 103px;*/
+  left: 36vw;
+}
+.p5{
+  position: absolute;
+  top: 350px;
+  /*left: 115px;*/
+  left: 40vw;
+}
+
+@media screen and (min-width: 414px){
+  .p1{
+    left: 32vw;
+  }
+
+  .p2{
+    left: 25vw;
+  }
+
+  .p3{
+    left: 35vw;
+  }
+  
+  .p4{
+    left: 38vw;
+  }
+  
+  .p5{
+    left: 41vw;
+  }
+
+  .div-home button{
+    margin-left: 3vw;
+  }
+}
+
+@media screen and (min-width: 480px){
+  .p1{
+    
+    left: 34vw;
+    top: 125px;
+  }
+
+  .p2{
+    left: 28vw;
+    top: 170px;
+  }
+
+  .p3{
+    left: 36vw;
+    top: 330px;
+  }
+  
+  .p4{
+    left: 39vw;
+    top: 370px;
+  }
+  
+  .p5{
+    left: 42vw;
+    top: 405px;
+  }
+
+  .div-home button{
+    margin-left: 5vw;
+    margin-top: 45px;
+  }
+}
+
 .div-home button {
   background-color: #9c7ea1;
   border: 1px solid white;
   padding: 10px 20px;
   border-radius: 5px;
-  margin-left: 85px;
+  left: 30vw;
   color: white;
-  margin: 0 auto;
   display: block;
+  position: absolute;
+  top: 205px;
 }
 .logomomento {
   width: 100%;
@@ -509,14 +593,14 @@ main {
 .grandes-herois h4 {
   text-align: center;
   padding: 10px 0;
-  color: #5e5e5e;
+  color: #000;
 }
 .us-rank {
   width: 49%;
   display: inline-block;
   text-align: center;
 }
-.us-rank img {
+.us-rank .ft_us_rank {
   width: 80px;
 }
 /* .us-rank .nota {
@@ -535,7 +619,9 @@ main {
 .exibmsg{
   display: none;
 }
-
+.coroa{
+  width: 75px;
+  padding-right:5px 
 }
 @media only screen and (min-width:481px){
   .exibmsg{
@@ -559,4 +645,59 @@ main {
   header{
     display: none;
   }
+}
+
+@media only screen and (max-width:319px){
+  .exibmsg{
+    display:block;
+    border: 4px #8800ff double;
+    text-align: center;
+    margin: 20px 20px;
+    padding: 10px 10px;
+  }
+  .exibmsg p{
+    font-size: 25px;
+    font-weight: bold;
+    color: rgb(219, 126, 11);
+  }
+  main{
+    display: none;
+  }
+  footer{
+    display: none;
+  }
+  header{
+    display: none;
+  }
+
+  .img-msg{
+    width: 250px;
+  }
+
+}
+
+.itens-filtro figure{
+  display: inline-block;
+  float: left;
+  text-align: center;
+  /* padding: 20px 22.1px; */
+ 
+  
+}
+.tempo, .roupa{
+  border-right: 3px solid white;
+  border-bottom: 3px solid white;
+  padding: 20px 22.1px;
+}
+.comida{
+  border-bottom: 3px solid white;
+  padding: 20px 22.1px;
+}
+.dinheiro{
+  border-right: 3px solid white;
+  padding: 20px 42px;
+
+}
+.outros{
+  padding: 20px 45px;
 }

@@ -14,9 +14,10 @@
 <main>
     
     <div class="div-home">
+        <img class="img-home" src="view/imagens/HOME2.png" alt="">
         <p class="p1">O que você<p>
         <p class="p2">Pode doar hoje?<p>
-        <a href = "doacoes.php"><button>QUERO AJUDA</button></a>
+        <a href = "doacoes.php"><button>QUERO AJUDAR</button></a>
         <p class="p3">Nos ajude</p>
         <p class="p4">a ajudar</p>
         <p class="p5">outros</p>
@@ -26,7 +27,7 @@
         <div class="oque">
             <h4>O que é uma doação?</h4>
              <img src="view/imagens/oqueedoacao.png">
-            <p>Uma doação acontece quando alguém (doador) opta por doar algo a alguma pessoa ou ONG, que esteja necessitando de algum recurso.</p>
+            <p>Uma doação acontece quando alguém (doador) opta por doar algo à alguma pessoa ou ONG, que esteja necessitando de algum recurso.</p>
         </div>
 
         <div class="oque">
@@ -38,7 +39,7 @@
         <div class="oque">
             <h4>O que são ONGs?</h4>
              <img src="view/imagens/oquesaoongs.png">
-            <p>São organizações não governamentais, que não possuem fins lucrativos. Elas desempenham um papel muito importante, pois oferecem projetos e serviços variados, a fim de ajudar a sociedade em vários aspectos</p>
+            <p>São organizações não governamentais, que não possuem fins lucrativos. Elas desempenham um papel muito importante, pois oferecem projetos e serviços variados, a fim de ajudar a sociedade em vários aspectos.</p>
         </div>
     </div>
     <div class="depoimento-home">
@@ -84,7 +85,8 @@
                 foreach($classificados as $i => $usuario){
                     echo '
                <div class="us-rank" ' . ($i == 2 ? 'style="width: 100%;"' : '')  . '>
-                    <img src="view/imagens/usuario.png">
+                    <img class ="coroa" src="view/imagens/coroaouro.png">
+                    <img class = "ft_us_rank" src="view/imagens/usuario.png">
                     <p class="nome">'.$usuario['nome_usuario'].'</p>
                     <p class="nota">'.exibirNota(5 - $i).'</p>
                </div>';

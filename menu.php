@@ -9,8 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" type="image/x-icon" href="view/imagens/logomomento.png">
-   
-    <link href="view/css/style.css"   rel="stylesheet" type="text/css">
+    <link href="view/css/style.css" rel="stylesheet" type="text/css">
     
 </head>
 <body>
@@ -86,7 +85,7 @@
         </header>
         <div class="exibmsg">
         <p>Desculpe! Momento Doe esta disponivel somente para mobile.<p>
-        <img src="view/imagens/logomomento.png">
+        <img class="img-msg" src="view/imagens/logomomento.png">
         </div>  
     </body>
 </html>

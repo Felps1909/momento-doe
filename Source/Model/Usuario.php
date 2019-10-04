@@ -14,6 +14,7 @@ class Usuario
     public $url_foto_usuario;
     public $cod_status_usuario = 1;
     public $id_tipo_us;
+    public $id_doc;
     // public $data_nascimento;
 
     public function salvarDados()
@@ -40,8 +41,7 @@ class Usuario
             return $result;
         }else{
             $query = Connect::getInstance()->prepare("UPDATE usuario set nome_usuario = :n, senha_usuario = :s,
-               tel_usuario = :t ,email_usuario = :e, url_foto_usuario = :f, cod_status_usuario = :status , id_tipo_us = :codtip ,data_nascimento = :d  
-                where id_usuario = :uid
+               tel_usuario = :t ,email_usuario = :e, url_foto_usuario = :f, cod_status_usuario = :status , id_tipo_us = :codtip    where id_usuario = :uid
                 ");
 
             $query->bindValue(':uid',$this->id_usuario);
@@ -55,6 +55,9 @@ class Usuario
             // $query->bindValue(':d',$this->data_nascimento);
             
             return $query->execute();
+
+             
+                   
         }
            
     }
@@ -89,13 +92,14 @@ class Usuario
             $usuario->url_foto_usuario = $u['url_foto_usuario'];
             $usuario->cod_status_usuario = $u['cod_status_usuario'];
             $usuario->cod_tipo_us = $u['id_tipo_us'];
+            $usuarip->$id_doc = $u['id_doc'];
             // $usuario->data_nascimento = $u['data_nascimento'];
             $array[] = $usuario;
         }
         return $array;
     }
 
-    public function cadastrarUsuario($nome_usuario, $senha_usuario, $email_usuario, $tipo_usuario) //Inserção 
+    public function cadastrarUsuario($nome_usuario, $senha_usuario, $email_usuario, $tipo_usuario, $id_doc) //Inserção 
     {
         //VERIFICAÇÃO DE USUARIO, VERIFICA SE JA N HÁ USUARIO CADASTRADO
         // $data_usuario = implode("-",array_reverse(explode("/",$data_usuario)));
@@ -108,8 +112,8 @@ class Usuario
             return false;
         
         }else{
-            $query = Connect::getInstance()->prepare("INSERT INTO usuario (nome_usuario, senha_usuario,email_usuario,  id_tipo_us)
-            values(:n,:s,:e,:d,:t)
+            $query = Connect::getInstance()->prepare("INSERT INTO usuario (nome_usuario, senha_usuario,email_usuario, id_tipo_us, id_doc)
+            values(:n,:s,:e,:t, :d)
         ");
 
             $query->bindValue(':n',$nome_usuario);
@@ -117,6 +121,7 @@ class Usuario
             $query->bindValue(':e',$email_usuario);
             // $query->bindValue(':d',$data_usuario);
             $query->bindValue(':t',$tipo_usuario);
+            $query->bindValue(':d',$id_doc);
             return $query->execute();
             
 

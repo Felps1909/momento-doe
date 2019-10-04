@@ -18,16 +18,20 @@
             $nome_usuario = addslashes($_POST['nome_usuario']);
             $senha_usuario = hash("sha256",addslashes($_POST['senha_usuario']));
             $email_usuario = addslashes($_POST['email_usuario']);
-			$tipo_usuario = (int)$_POST['tipos'];
+            $tipo_usuario = (int)$_POST['tipos'];
+            $id_doc = (int)$_POST['id_doc'];
             //$tel_usuario = addslashes($_POST['tel_usuario']);
             
             if(!empty($nome_usuario) && !empty($senha_usuario)
              && !empty($email_usuario) && !empty($tipo_usuario)){
 
                 if(!$id_usuario && count($usuario->buscarDados("email_usuario = '$email_usuario'"))> 0){
+                    // echo "<pre>";
+                    // print_r($query);
+                    // die();
                     echo "Deu Erro";
                 }else{
-                    $usuario->id_usuario = 1;
+                    // $usuario->id_usuario = 1;
                     $usuario->nome_usuario = $nome_usuario;
                     $usuario->senha_usuario = $senha_usuario;
                     //$usuario->tel_usuario = ;
@@ -35,7 +39,10 @@
                     //$usuario->url_foto_usuario;
                     //$usuario->cod_status_tipo_us;
                     $usuario->id_tipo_us = $tipo_usuario;
-                    $usuario->salvarDados();
+                    $usuario->id_doc = $id_doc;
+                    $usuario->cadastrarUsuario($nome_usuario,
+                        $senha_usuario, $email_usuario, $tipo_usuario, $id_doc
+                    );
                     $_SESSION['id_usuario'] = $usuario->id_usuario;
 
                     echo"<script>";

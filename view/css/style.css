@@ -1,7 +1,11 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  font-family: 'Oswald', sans-serif;
+  font-family: 'Roboto', sans-serif
+  
 }
 #container {
   width: 100%;
@@ -236,36 +240,60 @@ header {
 .div-doacao {
   background: url("../imagens/doacao.png") no-repeat;
   background-size: cover;
-  height: 480px;
+  height: 400px;
   margin-top: -39px;
 }
 .div-doacao h1 {
-  padding-top: 55px;
+  z-index: 2;
   color: white;
-  padding-left: 20px;
 }
 .div-doacao p {
   color: white;
-  padding-top: 15px;
-  padding-left: 20px;
+  font-size: 20px;
+  position: absolute;
+}
+.h11{
+  position: absolute;
+  top: 100px;
+  left: 20px;
+}
+.p11{
+  top: 170px;
+  left: 20px;
+}
+.p12{
+  top: 211px;
+  left: 20px;
+}
+.p13{
+  top: 365px;
+  left: 20px;
+}
+.p14{
+  top: 400px;
+  left: 20px;
 }
 .div-doacao button {
-  background-color: #9c7ea1;
+  background-color: #8800ff;
   border: 1px solid white;
-  padding: 10px 20px;
+  position: absolute;
+  height: 40px;
+  width: 120px;
   border-radius: 5px;
-  margin-left: 85px;
+  left: 95px;
   color: white;
-  margin: 0 auto;
   display: block;
+  z-index: 2;
+  top: 220px;
 }
+
 /* Esconde o input */
 input[type="file"] {
   display: none;
 }
 
 /* Aparência que terá o seletor de arquivo */
-.btn-foto {
+btn-foto {
   background-color: #f2c188;
   font-size: 12px;
   color: black;
@@ -311,6 +339,8 @@ input[type="file"] {
 #hidden {
   display: none;
 }
+
+
 .filtro {
   float: right;
   margin: 10px 15px;
@@ -332,18 +362,46 @@ input[type="file"] {
   margin-left: 10px;
   z-index: 2;
 }
+.itens-filtro figure{
+  display: inline-block;
+  float: left;
+  text-align: center;
+}
+.tempo, .roupa{
+  border-right: 3px solid white;
+  border-bottom: 3px solid white;
+  padding: 20px 22.1px;
+}
+.comida{
+  border-bottom: 3px solid white;
+  padding: 20px 22.1px;
+}
+.dinheiro{
+  border-right: 3px solid white;
+  padding: 15px 42px;
+
+}
+.outros{
+  padding: 20px 45px;
+}
+
+
+
+/*******footer********/
 footer {
-  position: fixed;
-  z-index: 3;
+  position: absolute;
+  z-index: 4;
+  top: 4080px;
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: #8800ff;
+  
   color: white;
   text-align: center;
 }
 .rodape {
   padding: 10px 10px;
+  background-color: #8800ff;
 }
 footer .rodape a {
   font-size: 13px;
@@ -353,6 +411,176 @@ footer .rodape a {
 .rodape a:nth-child(1) {
   margin-left: 1px;
 }
+
+
+
+#footCadas {
+  position: absolute;
+  z-index: 4;
+  top: 544px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  
+  color: white;
+  text-align: center;
+}
+.rodapeCadas {
+  padding: 10px 10px;
+  background-color: #8800ff;
+}
+#footCadas .rodapeCadas a {
+  font-size: 13px;
+  margin: 10px 15px;
+  text-align: center;
+}
+.rodapeCadas a:nth-child(1) {
+  margin-left: 1px;
+}
+
+
+
+#footDepo {
+  position: absolute;
+  z-index: 4;
+  top: 1385px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  
+  color: white;
+  text-align: center;
+}
+.rodapeDepo {
+  padding: 10px 10px;
+  background-color: #8800ff;
+}
+#footDepo .rodapeDepo a {
+  font-size: 13px;
+  margin: 10px 15px;
+  text-align: center;
+}
+.rodapeDepo a:nth-child(1) {
+  margin-left: 1px;
+}
+
+
+
+#footDoa {
+  position: absolute;
+  z-index: 4;
+  top: 720px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  
+  color: white;
+  text-align: center;
+}
+.rodapeDoa {
+  padding: 10px 10px;
+  background-color: #8800ff;
+}
+#footDoa .rodapeDoa a {
+  font-size: 13px;
+  margin: 10px 15px;
+  text-align: center;
+}
+.rodapeDoa a:nth-child(1) {
+  margin-left: 1px;
+}
+
+
+
+
+#footLog {
+  position: absolute;
+  z-index: 4;
+  top: 544px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  
+  color: white;
+  text-align: center;
+}
+.rodapeLog {
+  padding: 10px 10px;
+  background-color: #8800ff;
+}
+#footLog .rodapeLog a {
+  font-size: 13px;
+  margin: 10px 15px;
+  text-align: center;
+}
+.rodapeLog a:nth-child(1) {
+  margin-left: 1px;
+}
+
+
+
+#footOng {
+  position: absolute;
+  z-index: 4;
+  top: 1065px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  
+  color: white;
+  text-align: center;
+}
+.rodapeOng {
+  padding: 10px 10px;
+  background-color: #8800ff;
+}
+#footOng .rodapeOng a {
+  font-size: 13px;
+  margin: 10px 15px;
+  text-align: center;
+}
+.rodapeOng a:nth-child(1) {
+  margin-left: 1px;
+}
+
+
+#footQue {
+  position: absolute;
+  z-index: 4;
+  top:1006px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  
+  color: white;
+  text-align: center;
+}
+.rodapeQue {
+  padding: 10px 10px;
+  background-color: #8800ff;
+}
+#footQue .rodapeQue a {
+  font-size: 13px;
+  margin: 10px 15px;
+  text-align: center;
+}
+.rodapeQue a:nth-child(1) {
+  margin-left: 1px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .div-depoimento {
   background: url("../imagens/depoimento.jpg") no-repeat;
   background-size: cover;
@@ -370,7 +598,7 @@ footer .rodape a {
   padding-left: 20px;
 }
 .div-depoimento button {
-  background-color: #9c7ea1;
+  background-color: #8800ff;
   border: 1px solid white;
   padding: 10px 20px;
   border-radius: 5px;
@@ -408,157 +636,129 @@ main {
   margin-bottom: 80px;
 }
 
+.img-ongs{
+  width: 100%;
+  height: 487px;
+  margin-top: -94px;
+  z-index: 0;
+}
 .div-ongs {
-  background: url("../imagens/ongs.png") no-repeat;
-  background-size: cover;
-  height: 400px;
-  margin-top: -39px;
+  z-index: 1;
+  width: 100%;
+  padding-top: 55px;
+  
 }
 .div-ongs h1 {
-  padding-top: 55px;
+  z-index: 2;
   color: white;
-  padding-left: 20px;
+}
+.h1O{
+  position: absolute;
+  top: 105px;
+  left: 20px;
 }
 .div-ongs p {
   color: white;
-  padding-top: 15px;
-  padding-left: 20px;
+  font-size: 20px;
+  position: absolute;
+}
+.p1O{
+ top: 170px;
+ left: 20px;
+}
+.p2O{
+  top: 211px;
+  left: 20px;
+}
+.p3O{
+  top: 365px;
+  left: 20px;
+}
+.p4O{
+  top: 415px;
+  left: 20px;
 }
 .div-ongs button {
-  background-color: #9c7ea1;
+  background-color: #8800ff;
   border: 1px solid white;
-  padding: 10px 20px;
+  position: absolute;
+  height: 40px;
+  width: 120px;
   border-radius: 5px;
-  margin-left: 85px;
+  left: 95px;
   color: white;
-  margin: 0 auto;
   display: block;
-  opacity: 0.8;
+  z-index: 2;
+  top: -270px;
 }
+
+
 .img-home{
   width: 100%;
-  height: 440px;
+  height: 447px;
   margin-top: -37px;
   z-index: 0;
 }
 .div-home {
-  /*background: url("../imagens/HOME2.png") no-repeat;
-  background-size: cover;*/
   z-index: 1;
   width: 100%;
-  /*height: 400px;
-  margin-top: -37px;*/
 }
 .div-home p {
   color: white;
   text-align: center;
   font-size: 30px;
-  
   z-index: 2;
-  
 }
+
 .p1 {
   position: absolute;
-  top: 100px;
-  /*left: 85px;*/
-  left: 28vw;
+  color: white;
+  top: 105px;
+  left: 26%;
 }
 
 .p2 {
   position: absolute;
-  top: 138px;
-  /*left: 59px;*/
-  left: 20vw;
+  color: white;
+  top: 155px;
+  left: 25%;
 }
 .p3 {
   position: absolute;
-  top: 277px;
-  /*left: 91px;*/
-  left: 32vw;
+  color: white;
+  top: 320px;
+  left: 34%;
 }
 .p4{
   position: absolute;
-  top: 315px;
-  /*left: 103px;*/
-  left: 36vw;
+  color: white;
+  top: 355px;
+  left: 38%;
 }
 .p5{
   position: absolute;
-  top: 350px;
-  /*left: 115px;*/
-  left: 40vw;
+  color: white;
+  top: 395px;
+  left: 40%;
 }
 
-@media screen and (min-width: 414px){
-  .p1{
-    left: 32vw;
-  }
-
-  .p2{
-    left: 25vw;
-  }
-
-  .p3{
-    left: 35vw;
-  }
-  
-  .p4{
-    left: 38vw;
-  }
-  
-  .p5{
-    left: 41vw;
-  }
-
-  .div-home button{
-    margin-left: 3vw;
-  }
-}
-
-@media screen and (min-width: 480px){
-  .p1{
-    
-    left: 34vw;
-    top: 125px;
-  }
-
-  .p2{
-    left: 28vw;
-    top: 170px;
-  }
-
-  .p3{
-    left: 36vw;
-    top: 330px;
-  }
-  
-  .p4{
-    left: 39vw;
-    top: 370px;
-  }
-  
-  .p5{
-    left: 42vw;
-    top: 405px;
-  }
-
-  .div-home button{
-    margin-left: 5vw;
-    margin-top: 45px;
-  }
+.div-home button{
+  margin-left: 8vw;
+  margin-top: 45px;
 }
 
 .div-home button {
-  background-color: #9c7ea1;
+  background-color: #8800ff;
   border: 1px solid white;
   padding: 10px 20px;
   border-radius: 5px;
-  left: 30vw;
+  left: 22vw;
   color: white;
   display: block;
   position: absolute;
   top: 205px;
 }
+
 .logomomento {
   width: 100%;
 }
@@ -632,6 +832,18 @@ main {
   width: 75px;
   padding-right:5px 
 }
+
+/******img quem somos*******/
+.imgq{
+width: 100%;
+margin: 0;
+}
+
+
+
+
+
+/***exibição de mensagem***/
 @media only screen and (min-width:481px){
   .exibmsg{
     display:block;
@@ -682,31 +894,5 @@ main {
   .img-msg{
     width: 250px;
   }
-
 }
 
-.itens-filtro figure{
-  display: inline-block;
-  float: left;
-  text-align: center;
-  /* padding: 20px 22.1px; */
- 
-  
-}
-.tempo, .roupa{
-  border-right: 3px solid white;
-  border-bottom: 3px solid white;
-  padding: 20px 22.1px;
-}
-.comida{
-  border-bottom: 3px solid white;
-  padding: 20px 22.1px;
-}
-.dinheiro{
-  border-right: 3px solid white;
-  padding: 20px 42px;
-
-}
-.outros{
-  padding: 20px 45px;
-}

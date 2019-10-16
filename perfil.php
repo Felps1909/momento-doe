@@ -1,10 +1,10 @@
 <?php
     
-    if(!isset($_SESSION['id_usuario'])){
+    if(isset($_SESSION['logado'])){
         header("location:index.php");
         exit;
-    }
-
-
+    
 ?>
-<h2>Benvindo Putao</h2>
+<?php } else { ?>
+    <h2>Benvindo Putao</h2>
+<?php } ?>

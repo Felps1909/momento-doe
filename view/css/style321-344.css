@@ -1,0 +1,32 @@
+@media screen and (min-width:321px) and (max-width:344px){
+    .p1{ 
+      left: 28%;
+      top: 100px;
+    }
+  
+    .p2{
+      left: 27%;
+      top: 150px;
+    }
+  
+    .p3{
+      left: 34%;
+      top: 320px;
+    }
+    
+    .p4{
+      left: 37%;
+      top: 360px;
+    }
+    
+    .p5{
+      left: 40%;
+      top: 400px;
+    }
+  
+    .div-home button{
+      margin-left: 8vw;
+      margin-top: 45px;
+    }
+  }
+  

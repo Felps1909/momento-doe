@@ -8,12 +8,7 @@
 </head>      
 <footer>
         <div class="rodape">
-            <a>Depoimentos</a>
-            <a>Ongs</a>
-            <a>Ranking</a>
-            <a>Doações</a>
-            <a>Perfil</a>
-            <a>Quem Somos</a>
+            &copy; Momento Doe 2019
 
         </div>
 

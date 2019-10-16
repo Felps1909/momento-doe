@@ -66,7 +66,7 @@
 
                     <a href="index.php"><img class="logo-menu" src="view/imagens/logodomenu.png"></a>
 
-                    <img class="btn-perfil" src="view/imagens/perfil.png">
+                    <a href="perfil.php"><img class="btn-perfil" src="view/imagens/perfil.png"></a>
                 </section>
             </article>
             <article>

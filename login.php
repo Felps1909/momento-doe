@@ -19,7 +19,7 @@ require_once "menu.php";
         if(!empty($senha_usuario) && !empty($email_usuario)){
             if($usuario->logarUsuario($email_usuario, $senha_usuario)){
                
-                // var_dump($_SESSION['id_usuario']);
+                 $_SESSION['logado'] = true;
                  header("location:perfil.php");
                 
             } else{

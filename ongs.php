@@ -16,17 +16,17 @@
 </style>
 <main>
     <div class="div-ongs">
-         <h1>ONGs</h1>
-        <!-- <img src="view/imagens/doacao.png" class = "img-doacao"> -->
-        <p>Ajude-nos a fazer<p>
-        <p>O bem<p>
+         <h1 class="h1O">ONGs</h1>
+        <img src="view/imagens/ongs.png" class = "img-ongs">
+        <p class="p1O">Ajude-nos a fazer<p>
+        <p class="p2O">O bem<p>
         <a href = "doacoes.php"><button>PEÇA AJUDA</button></a>
-        <p>Veja o que essas ONGs estão</p>
-        <p>Precisando<p>
-
-            
+        <p class="p3O">Veja o que essas ONGs estão</p>
+        <p class="p4O">Precisando<p>    
     </div>
-    <div class="filtro">
+
+
+ <div class="filtro">
         <button onClick="Mudarestado2()">Filtro</button>
     </div>
     <div id="filtro" class="itens-filtro hidden">
@@ -51,8 +51,9 @@
         <img src="view/imagens/outros.png">
         <figcaption>Outros</figcaption>
     </figure>
-
 </div>  
+
+
     <script>    
         function Mudarestado2(el2) {
             document.getElementById("filtro").classList.toggle("hidden");
@@ -67,7 +68,10 @@
         
     </div>
 </main>
-<?php
-        require_once "footer.php";
-?>
- 
+
+<footer id="footOng">
+    <div class="rodapeOng">
+        &copy; Momento Doe 2019
+    </div>
+</footer>
+       

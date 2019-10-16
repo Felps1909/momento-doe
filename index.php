@@ -7,37 +7,39 @@
 <html lang="pt-br">
 
 <head>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Oswald|Roboto&display=swap" rel="stylesheet">
-    <title>Home - Momento Doe</title>
+<link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Oswald|Roboto&display=swap" rel="stylesheet">
+    <title>O que você pode doar?</title>
 </head>
 
 <main>
     
     <div class="div-home">
         <img class="img-home" src="view/imagens/HOME2.png" alt="">
-        <p class="p1">O que você<p>
-        <p class="p2">Pode doar hoje?<p>
+        <h1 class="p1">O que você</h1>
+        <h2 class="p2">pode doar hoje?</h2>
         <a href = "doacoes.php"><button>QUERO AJUDAR</button></a>
-        <p class="p3">Nos ajude</p>
-        <p class="p4">a ajudar</p>
-        <p class="p5">outros</p>
+        <h2 class="p3">Nos ajude</h2>
+        <h2 class="p4">a ajudar</h2>
+        <h2 class="p5">outros</h2>
     </div>
-    <img class="logomomento" src="view/imagens/logomomento.png">
+
+    <img class="logomomento" src="view/imagens/logomomento.png" alt="Logo Momento Doe">
+
     <div class="motivacao">
         <div class="oque">
-            <h4>O que é uma doação?</h4>
+            <h3>O que é uma doação?</h3>
              <img src="view/imagens/oqueedoacao.png">
             <p>Uma doação acontece quando alguém (doador) opta por doar algo à alguma pessoa ou ONG, que esteja necessitando de algum recurso.</p>
         </div>
 
         <div class="oque">
-            <h4>Por que doar?</h4>
+            <h3>Por que doar?</h3>
              <img src="view/imagens/porquedoar.png">
             <p>Quem se sujeita a ajudar alguém através da doação, sente-se satisfeito em fazer o bem e presenciar a gratidão de quem recebe. Além disso, estará ajudando quem realmente necessita de algum recurso.</p>
         </div>
         <img class="velhacadeira" src="view/imagens/velhacadeira.png">
         <div class="oque">
-            <h4>O que são ONGs?</h4>
+            <h3>O que são ONGs?</h3>
              <img src="view/imagens/oquesaoongs.png">
             <p>São organizações não governamentais, que não possuem fins lucrativos. Elas desempenham um papel muito importante, pois oferecem projetos e serviços variados, a fim de ajudar a sociedade em vários aspectos.</p>
         </div>
@@ -104,15 +106,6 @@
 </main>
 
 
-
-
-
-
-
-
-
-
 <?php
-
     require_once "footer.php";
 ?>

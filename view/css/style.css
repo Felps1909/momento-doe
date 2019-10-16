@@ -236,7 +236,7 @@ header {
 .div-doacao {
   background: url("../imagens/doacao.png") no-repeat;
   background-size: cover;
-  height: 400px;
+  height: 480px;
   margin-top: -39px;
 }
 .div-doacao h1 {
@@ -268,8 +268,7 @@ input[type="file"] {
 .btn-foto {
   background-color: #f2c188;
   font-size: 12px;
-  border-radius: 5px;
-  color: white;
+  color: black;
   cursor: pointer;
   padding: 10px 20px;
   margin-left: 20px;
@@ -277,7 +276,7 @@ input[type="file"] {
 .doar {
   background: #f09c42;
   width: 280px;
-  height: 180px;
+  height: 210px;
   border: 5px dashed #f1b97e;
   margin-left: 15px;
   margin-top: -80px;
@@ -295,9 +294,19 @@ input[type="file"] {
 }
 .btn-doar {
   border: 1px solid black;
-  padding: 2px 5px;
+  padding: 5px 15px;
   margin: 15px 110px;
-  border-radius: 5px;
+  border-radius: 3px;
+ 
+}
+.doar select{
+  padding: 5px 73px;
+  margin-left: 15px; 
+  margin-top: 10px;
+  background-color: #f09c42;
+  color: white;
+  border: solid 2px #f3932c;
+
 }
 #hidden {
   display: none;

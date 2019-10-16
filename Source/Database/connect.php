@@ -7,9 +7,10 @@ use \PDOException;
 class Connect
 {
    private const HOST = "localhost";
+   //private const HOST = "LAB01M16";
    private const USER = "root";
    private const DBNAME= "bd_momento_doe";
-  //  private const PASSWD = "12345678";
+  // private const PASSWD = "12345678";
    private const PASSWD = "";
 
 // Configurações importantes

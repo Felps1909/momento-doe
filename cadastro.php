@@ -29,7 +29,7 @@
                     // echo "<pre>";
                     // print_r($query);
                     // die();
-                    echo "Deu Erro";
+                    echo "Email Ja cadastrado";
                 }else{
                     // $usuario->id_usuario = 1;
                     $usuario->nome_usuario = $nome_usuario;
@@ -43,12 +43,14 @@
                     $usuario->cadastrarUsuario($nome_usuario,
                         $senha_usuario, $email_usuario, $tipo_usuario, $id_doc
                     );
+               
                     $_SESSION['id_usuario'] = $usuario->id_usuario;
+                    
 
                     echo"<script>";
                     echo "alert('Cadastrado com Sucesso')";
                     echo"</script>";
-                    header("location:index.php");
+                    header("location:login.php");
                 }  
 
             }else{

@@ -63,7 +63,7 @@ class Usuario
     }
 
     public function getTipoUsuario(){
-        $query = Connect::getInstance()->query("SELECT * FROM tipo_usuario where cod_tipo_us = $this->id_tipo_us");
+        $query = Connect::getInstance()->query("SELECT * FROM tipo_usuario where id_tipo_us = $this->id_tipo_us");
         $t = $query->fetchAll()[0];
 
         $tipo_usuario = new TipoUsuario();
@@ -123,7 +123,9 @@ class Usuario
             $query->bindValue(':t',$tipo_usuario);
             $query->bindValue(':d',$id_doc);
             return $query->execute();
-            
+            if($query->execute()){
+                $id = $db->lastInsertId();
+            }
 
         }
     }

@@ -25,7 +25,7 @@
                         <?php
                             if(isset($_SESSION['id_usuario'])){
                                 echo '<hr>';
-                                echo '<a href="Logout.php?token='.md5(session_id()).'">Sair</a>';
+                                echo '<a href="Logout.php">Sair</a>';
                                 echo '<hr>';
                                 echo ' <a href="#">Ranking</a>';
                                 echo '<hr>';

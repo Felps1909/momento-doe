@@ -352,33 +352,43 @@ btn-foto {
   background-color: #505050;
   color: white;
   width: 300px;
-  height: 201px;
+  height: 210x;
   position: absolute;
   margin-top: 35px;
   margin-left: 10px;
   z-index: 2;
+}
+.itens-filtro a {
+  text-decoration: none;
+  color: white;
 }
 .itens-filtro figure {
   display: inline-block;
   float: left;
   text-align: center;
 }
+.limpar {
+  border-top: 3px solid white;
+  width: 100%;
+}
 .tempo,
 .roupa {
   border-right: 3px solid white;
-  border-bottom: 3px solid white;
+
   padding: 20px 22.1px;
 }
 .comida {
-  border-bottom: 3px solid white;
   padding: 20px 22.1px;
 }
 .dinheiro {
   border-right: 3px solid white;
+  border-top: 3px solid white;
+
   padding: 15px 42px;
 }
 .outros {
-  padding: 20px 45px;
+  border-top: 3px solid white;
+  padding: 15px 52.7px;
 }
 
 /*******footer********/
@@ -805,7 +815,30 @@ main {
   width: 100%;
   margin: 0;
 }
-
+.doacao {
+  background-color: white;
+  width: 100%;
+  position: relative;
+  margin-top: 50px;
+}
+.ft-usuario {
+  width: 50px;
+  float: left;
+  margin: 5px 5px;
+}
+.nome-usuario {
+  font-weight: bold;
+  font-family: 16px;
+  padding: 20px 5px;
+}
+.img-desc-doacao {
+  width: 50%;
+  padding: 0 80px;
+}
+.desc-doacao {
+  padding: 10px 10px;
+  text-align: justify;
+}
 /***exibição de mensagem***/
 @media only screen and (min-width: 481px) {
   .exibmsg {

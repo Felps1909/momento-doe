@@ -51,44 +51,56 @@
         <button onClick="Mudarestado2()">Filtro</button>
     </div>
     <div id="filtro" class="itens-filtro hidden">
-        <figure class="tempo">
+        <a href="?q=1"><figure class="tempo">
             <img src="view/imagens/tempo.png">
             <figcaption>Tempo</figcaption>
-        </figure>
-        <figure class="roupa">
+        </figure></a>
+        <a href="?q=2"><figure class="roupa">
             <img src="view/imagens/roupas.png">
             <figcaption>Roupas</figcaption>
-        </figure>
-        <figure class="comida">
+        </figure></a>
+        <a href="?q=3"><figure class="comida">
             <img src="view/imagens/comida.png">
             <figcaption>Comida</figcaption>
         </figure>
-        <figure class="dinheiro">
+         <a href="?q=4"><figure class="dinheiro">
             <img src="view/imagens/dinheiro.png">
             <figcaption>Dinheiro</figcaption>
-        </figure>
+        </figure> </a>
      
-        <figure class="outros">
+         <a href="?q=5"><figure class="outros">
             <img src="view/imagens/outros.png">
             <figcaption>Outros</figcaption>
-        </figure>
-
+        </figure> </a>
+         <a href="doacoes.php"><figure class="limpar">
+            <figcaption>Limpar Filtro</figcaption>
+        </figure> </a>
+           
     </div>
-    <?php
-        $doacao = new Doacoes();
+    <div class ="doacao">
+        <?php
+
         
-        $dados = $doacao->buscarDados("cod_status_doacao = 1");
-        
-        if(count($dados) > 0){
+            $doacao = new Doacoes();
+            if(isset($_GET['q'])){
+                 $dados = $doacao->buscarDados("cod_status_doacao = 1 and id_tipo_doa = ".$_GET['q']);
+
+            }else{
+                $dados = $doacao->buscarDados("cod_status_doacao = 1");
+            }    
+            if(count($dados) > 0){
             foreach($dados as $i => $doacao){
-                $usuario = $doacao->getUsuario();
-                
-                echo "$usuario->url_foto_usuario";
-                echo "<br>";
-                echo "$usuario->nome_usuario";
+                $usuario = $doacao->getUsuario();              
+                echo' <img src="'.$usuario->url_foto_usuario.'" class="ft-usuario">
+                        <p class = "nome-usuario">'.$usuario->nome_usuario.'</p>
+                        <img src ="' . (is_null($doacao->url_foto_doacao) ? 'view/imagens/imgdefault.png' : $doacao->url_foto_doacao) . '" class = "img-desc-doacao">
+                        <p class="desc-doacao">'.$doacao->desc_doacao.'<p>';
+                }
             }
-        }
-    ?>
+        ?>
+    
+       
+    </div>
     <script>    
          function Mudarestado(el) {
             <?php if(isset($_SESSION['id_usuario'])){ ?>

@@ -24,11 +24,9 @@ class Doacoes
         $this->data_hora_doa= implode("-",array_reverse(explode("/",$this->data_hora_doa)));
         $array= [];
         if(is_null($condition)){
-            $query = Connect::getInstance()->query( "SELECT D.*, TD.desc_tipo_doa from doacao D 
-            LEFT JOIN tipo_doacao TD ON TD.id_tipo_doa = D.id_tipo_doa where D.cod_status_doacao = 'A';");
+            $query = Connect::getInstance()->query( "SELECT D.* from doacao D where D.cod_status_doacao = 1;");
         }else{
-            $query = Connect::getInstance()->query( "SELECT D.*, TD.desc_tipo_doa from doacao D 
-            LEFT JOIN tipo_doacao TD ON TD.id_tipo_doa = D.id_tipo_doa where $condition");
+            $query = Connect::getInstance()->query( "SELECT D.* from doacao D where $condition");
         }
         foreach($query->fetchAll() as $d){
             $doacao = new Doacoes();

@@ -3,6 +3,12 @@
      use Source\Model\Usuario;
      require_once "menu.php";
     $usuario = new Usuario();
+      if(isset($_GET['i'])){
+            $usuario = $usuario->buscarDados("id_usuario = {$_GET['i']}")[0];
+            $usuario->cod_status_usuario = 0;
+            $usuario->salvarDados();
+        }
+        
     $dados = $usuario->buscarDados("cod_status_usuario = 1");
 ?>
 <style>
@@ -20,15 +26,7 @@
         padding:0;
     }
 </style>
-<?php
-    if(isset($_GET['i'])){
-            $usuario = $usuario->buscarDados("id_usuario = {$_GET['i']}")[0];
-            $usuario->cod_status_usuario = 0;
-            $usuario->salvarDados();
-        }
 
-
-?>
 <table>
     <thead>
         <h3>Usuarios:</h3>

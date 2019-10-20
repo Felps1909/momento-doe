@@ -44,26 +44,32 @@ class Doacoes
         return $array;
     }
 
- 
- 
     public function getTipoDoacao(){
-        $query = Connect::getInstance()->query("SELECT * FROM tipo_doacao where id_tipo_doa = $this->id_tipo_doa ");
+    $query = Connect::getInstance()->query("SELECT * FROM tipo_doacao where id_tipo_doa = {$this->id_tipo_doa }");
         $td = $query->fetchAll()[0];
-        $id_tipo_doacao = new TipoDoacao;
+        $id_tipo_doacao = new TipoDoacao();
         $id_tipo_doacao->id_tipo_doa = $td['id_tipo_doa'];
         $id_tipo_doacao->desc_tipo_doa = $td['desc_tipo_doa'];
         $id_tipo_doacao->cod_status_tipo_doa = $td['cod_status_tipo_doa'];
 
         return $id_tipo_doacao;
+    }   
+    public function getUsuario(){
+        $usuario = new Usuario();
+        return $usuario->buscarDados("id_usuario = {$this->id_usuario}")[0];
+        
+        
     }
-
-    public function cadastrarDoacao($desc_doacao, $id_tipo_doa) //$url_foto_doacao)
+    public function cadastrarDoacao() 
     {
-            $query= Connect::getInstance()->prepare("INSERT INTO doacao (desc_doacao, id_tipo_doa)
-            values(:d,:idt)
+
+            $query= Connect::getInstance()->prepare("INSERT INTO doacao (desc_doacao, id_tipo_doa,id_usuario, url_foto_doacao)
+            values(:d,:idt, :idu, :ft)
         ");
-        $query->bindValue(":d",$desc_doacao);
-        $query->bindValue(":idt",$id_tipo_doa);
+        $query->bindValue(":d",$this->desc_doacao);
+        $query->bindValue(":idt",$this->id_tipo_doa);
+        $query->bindValue(":ft",$this->url_foto_doacao);
+        $query->bindValue(":idu",$_SESSION['id_usuario']);
         return $query->execute();
         
     }

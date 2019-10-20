@@ -19,7 +19,7 @@
             $senha_usuario = hash("sha256",addslashes($_POST['senha_usuario']));
             $email_usuario = addslashes($_POST['email_usuario']);
             $tipo_usuario = (int)$_POST['tipos'];
-            $id_doc = (int)$_POST['id_doc'];
+            $id_doc = preg_replace("/[^0-9]/","",$_POST['id_doc']);
             //$tel_usuario = addslashes($_POST['tel_usuario']);
             
             if(!empty($nome_usuario) && !empty($senha_usuario)
@@ -39,10 +39,11 @@
                     //$usuario->url_foto_usuario;
                     //$usuario->cod_status_tipo_us;
                     $usuario->id_tipo_us = $tipo_usuario;
+
                     $usuario->id_doc = $id_doc;
-                    $usuario->cadastrarUsuario($nome_usuario,
-                        $senha_usuario, $email_usuario, $tipo_usuario, $id_doc
-                    );
+                    
+                   
+                    $usuario->salvarDados();
                
                     $_SESSION['id_usuario'] = $usuario->id_usuario;
                     
@@ -108,7 +109,7 @@
                 <input class="input" type="password" name="senha_usuario" >
 
                 <label>CNPJ</label>
-                <input class="input" type="text" id="cnpj" name="id_doc" >
+                <input class="input" type="text" id="cnpj" name="id_doc"  value="<?php echo $usuario->id_doc;?>">
               
                 
 
@@ -134,7 +135,7 @@
                 <input class="input" type="password" name="senha_usuario" >
 
                 <label>CPF</label>
-                <input class="input" type="text" id="cpf" name="id_doc" >
+                <input class="input" type="text" id="cpf" name="id_doc" value="<?php echo $usuario->id_doc;?>">
               
                 
 

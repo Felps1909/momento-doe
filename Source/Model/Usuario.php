@@ -24,8 +24,8 @@ class Usuario
         if(is_null($this->id_usuario)){
 
             $query = Connect::getInstance()->prepare("INSERT INTO usuario (nome_usuario, senha_usuario,tel_usuario,email_usuario,
-            url_foto_usuario,cod_status_usuario, id_tipo_us)
-            values(:n,:s,:t,:e,:f,:status,:codtip,:d)");
+            url_foto_usuario,cod_status_usuario, id_tipo_us, id_doc)
+            values(:n,:s,:t,:e,:f,:status,:codtip, :iddoc)");
 
             $query->bindValue(':n',$this->nome_usuario);
             $query->bindValue(':s',$this->senha_usuario);
@@ -34,10 +34,11 @@ class Usuario
             $query->bindValue(':f',$this->url_foto_usuario);
             $query->bindValue(':status',$this->cod_status_usuario);
             $query->bindValue(':codtip',$this->id_tipo_us);
+            $query->bindValue(':iddoc',$this->id_doc);
             // $query->bindValue(':d',$this->data_nascimento);
             $result = $query->execute();
             $this->id_usuario = Connect::getInstance()->lastInsertId();
-
+            
             return $result;
         }else{
             $query = Connect::getInstance()->prepare("UPDATE usuario set nome_usuario = :n, senha_usuario = :s,
@@ -63,7 +64,7 @@ class Usuario
     }
 
     public function getTipoUsuario(){
-        $query = Connect::getInstance()->query("SELECT * FROM tipo_usuario where id_tipo_us = $this->id_tipo_us");
+    $query = Connect::getInstance()->query("SELECT * FROM tipo_usuario where id_tipo_us = {$this->id_tipo_us}");
         $t = $query->fetchAll()[0];
 
         $tipo_usuario = new TipoUsuario();
@@ -91,8 +92,8 @@ class Usuario
             $usuario->email_usuario = $u['email_usuario'];
             $usuario->url_foto_usuario = $u['url_foto_usuario'];
             $usuario->cod_status_usuario = $u['cod_status_usuario'];
-            $usuario->cod_tipo_us = $u['id_tipo_us'];
-            $usuarip->$id_doc = $u['id_doc'];
+            $usuario->id_tipo_us = $u['id_tipo_us'];
+            $usuario->id_doc = $u['id_doc'];
             // $usuario->data_nascimento = $u['data_nascimento'];
             $array[] = $usuario;
         }

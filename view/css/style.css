@@ -1,11 +1,10 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: 'Montserrat', sans-serif;
-  font-family: 'Open Sans', sans-serif;
-  font-family: 'Oswald', sans-serif;
-  font-family: 'Roboto', sans-serif
-  
+  font-family: "Montserrat", sans-serif;
+  font-family: "Open Sans", sans-serif;
+  font-family: "Oswald", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 #container {
   width: 100%;
@@ -42,8 +41,8 @@
   transition: 0.3s;
 }
 .overlay hr {
-  margin-top: 10px; 
-  margin-left: 15px;  
+  margin-top: 10px;
+  margin-left: 15px;
   width: 90%;
   height: 2px;
   background-color: white;
@@ -252,24 +251,24 @@ header {
   font-size: 20px;
   position: absolute;
 }
-.h11{
+.h11 {
   position: absolute;
   top: 100px;
   left: 20px;
 }
-.p11{
+.p11 {
   top: 170px;
   left: 20px;
 }
-.p12{
+.p12 {
   top: 211px;
   left: 20px;
 }
-.p13{
+.p13 {
   top: 365px;
   left: 20px;
 }
-.p14{
+.p14 {
   top: 400px;
   left: 20px;
 }
@@ -299,7 +298,7 @@ btn-foto {
   color: black;
   cursor: pointer;
   padding: 10px 20px;
-  margin-left: 20px;
+  margin-left: 18px;
 }
 .doar {
   background: #f09c42;
@@ -311,7 +310,7 @@ btn-foto {
   position: absolute;
   z-index: 2;
 }
-.doar textarea{
+.doar textarea {
   border: none;
   background-color: #f2c188;
   font-size: 13px;
@@ -325,21 +324,18 @@ btn-foto {
   padding: 5px 15px;
   margin: 15px 110px;
   border-radius: 3px;
- 
 }
-.doar select{
+.doar select {
   padding: 5px 73px;
-  margin-left: 15px; 
+  margin-left: 15px;
   margin-top: 10px;
   background-color: #f09c42;
   color: white;
   border: solid 2px #f3932c;
-
 }
 #hidden {
   display: none;
 }
-
 
 .filtro {
   float: right;
@@ -362,30 +358,28 @@ btn-foto {
   margin-left: 10px;
   z-index: 2;
 }
-.itens-filtro figure{
+.itens-filtro figure {
   display: inline-block;
   float: left;
   text-align: center;
 }
-.tempo, .roupa{
+.tempo,
+.roupa {
   border-right: 3px solid white;
   border-bottom: 3px solid white;
   padding: 20px 22.1px;
 }
-.comida{
+.comida {
   border-bottom: 3px solid white;
   padding: 20px 22.1px;
 }
-.dinheiro{
+.dinheiro {
   border-right: 3px solid white;
   padding: 15px 42px;
-
 }
-.outros{
+.outros {
   padding: 20px 45px;
 }
-
-
 
 /*******footer********/
 footer {
@@ -395,7 +389,7 @@ footer {
   left: 0;
   bottom: 0;
   width: 100%;
-  
+
   color: white;
   text-align: center;
 }
@@ -412,8 +406,6 @@ footer .rodape a {
   margin-left: 1px;
 }
 
-
-
 #footCadas {
   position: absolute;
   z-index: 4;
@@ -421,7 +413,7 @@ footer .rodape a {
   left: 0;
   bottom: 0;
   width: 100%;
-  
+
   color: white;
   text-align: center;
 }
@@ -438,8 +430,6 @@ footer .rodape a {
   margin-left: 1px;
 }
 
-
-
 #footDepo {
   position: absolute;
   z-index: 4;
@@ -447,7 +437,7 @@ footer .rodape a {
   left: 0;
   bottom: 0;
   width: 100%;
-  
+
   color: white;
   text-align: center;
 }
@@ -464,8 +454,6 @@ footer .rodape a {
   margin-left: 1px;
 }
 
-
-
 #footDoa {
   position: absolute;
   z-index: 4;
@@ -473,7 +461,7 @@ footer .rodape a {
   left: 0;
   bottom: 0;
   width: 100%;
-  
+
   color: white;
   text-align: center;
 }
@@ -490,9 +478,6 @@ footer .rodape a {
   margin-left: 1px;
 }
 
-
-
-
 #footLog {
   position: absolute;
   z-index: 4;
@@ -500,7 +485,7 @@ footer .rodape a {
   left: 0;
   bottom: 0;
   width: 100%;
-  
+
   color: white;
   text-align: center;
 }
@@ -517,8 +502,6 @@ footer .rodape a {
   margin-left: 1px;
 }
 
-
-
 #footOng {
   position: absolute;
   z-index: 4;
@@ -526,7 +509,7 @@ footer .rodape a {
   left: 0;
   bottom: 0;
   width: 100%;
-  
+
   color: white;
   text-align: center;
 }
@@ -543,15 +526,14 @@ footer .rodape a {
   margin-left: 1px;
 }
 
-
 #footQue {
   position: absolute;
   z-index: 4;
-  top:1006px;
+  top: 1006px;
   left: 0;
   bottom: 0;
   width: 100%;
-  
+
   color: white;
   text-align: center;
 }
@@ -567,19 +549,6 @@ footer .rodape a {
 .rodapeQue a:nth-child(1) {
   margin-left: 1px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .div-depoimento {
   background: url("../imagens/depoimento.jpg") no-repeat;
@@ -636,7 +605,7 @@ main {
   margin-bottom: 80px;
 }
 
-.img-ongs{
+.img-ongs {
   width: 100%;
   height: 487px;
   margin-top: -94px;
@@ -646,13 +615,12 @@ main {
   z-index: 1;
   width: 100%;
   padding-top: 55px;
-  
 }
 .div-ongs h1 {
   z-index: 2;
   color: white;
 }
-.h1O{
+.h1O {
   position: absolute;
   top: 105px;
   left: 20px;
@@ -662,19 +630,19 @@ main {
   font-size: 20px;
   position: absolute;
 }
-.p1O{
- top: 170px;
- left: 20px;
+.p1O {
+  top: 170px;
+  left: 20px;
 }
-.p2O{
+.p2O {
   top: 211px;
   left: 20px;
 }
-.p3O{
+.p3O {
   top: 365px;
   left: 20px;
 }
-.p4O{
+.p4O {
   top: 415px;
   left: 20px;
 }
@@ -692,8 +660,7 @@ main {
   top: -270px;
 }
 
-
-.img-home{
+.img-home {
   width: 100%;
   height: 447px;
   margin-top: -37px;
@@ -729,20 +696,20 @@ main {
   top: 320px;
   left: 34%;
 }
-.p4{
+.p4 {
   position: absolute;
   color: white;
   top: 355px;
   left: 38%;
 }
-.p5{
+.p5 {
   position: absolute;
   color: white;
   top: 395px;
   left: 40%;
 }
 
-.div-home button{
+.div-home button {
   margin-left: 8vw;
   margin-top: 45px;
 }
@@ -825,74 +792,69 @@ main {
 .imgdoar {
   width: 100%;
 }
-.exibmsg{
+.exibmsg {
   display: none;
 }
-.coroa{
+.coroa {
   width: 75px;
-  padding-right:5px 
+  padding-right: 5px;
 }
 
 /******img quem somos*******/
-.imgq{
-width: 100%;
-margin: 0;
+.imgq {
+  width: 100%;
+  margin: 0;
 }
-
-
-
-
 
 /***exibição de mensagem***/
-@media only screen and (min-width:481px){
-  .exibmsg{
-    display:block;
+@media only screen and (min-width: 481px) {
+  .exibmsg {
+    display: block;
     border: 4px #8800ff double;
     text-align: center;
     margin: 20px 20px;
     padding: 10px 10px;
   }
-  .exibmsg p{
+  .exibmsg p {
     font-size: 25px;
     font-weight: bold;
     color: rgb(219, 126, 11);
   }
-  main{
+  main {
     display: none;
   }
-  footer{
+  footer {
     display: none;
   }
-  header{
+  header {
     display: none;
   }
 }
 
-@media only screen and (max-width:319px){
-  .exibmsg{
-    display:block;
+@media only screen and (max-width: 319px) {
+  .exibmsg {
+    display: block;
     border: 4px #8800ff double;
     text-align: center;
     margin: 20px 20px;
     padding: 10px 10px;
   }
-  .exibmsg p{
+  .exibmsg p {
     font-size: 25px;
     font-weight: bold;
     color: rgb(219, 126, 11);
   }
-  main{
+  main {
     display: none;
   }
-  footer{
+  footer {
     display: none;
   }
-  header{
+  header {
     display: none;
   }
 
-  .img-msg{
+  .img-msg {
     width: 250px;
   }
 }
-

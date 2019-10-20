@@ -3,6 +3,7 @@
     require_once "menu.php";
     use  Source\Model\TipoDoacao;
     use  Source\Model\Doacoes;
+    use  Source\Model\UploadImage;
 
 ?>
 
@@ -37,11 +38,11 @@
                     <option name="tipo_doa" value="5">Outros<option>
                 </select>
                     <textarea name="desc_doacao">
-            escreva sua doação aqui!
+                     escreva sua doação aqui!
                     </textarea>
-                    <input type="file" name="url_foto_doacao">
+                    
                     <label class="btn-foto" for='selecao-arquivo'>Selecione uma imagem para doação</label>
-                    <input id='selecao-arquivo' type='file'>
+                    <input id='selecao-arquivo' type='file' name="url_foto_doacao">
                     <input class ="btn-doar" type = "submit" name="Enviar">
                 </form>
             </div>
@@ -73,6 +74,21 @@
         </figure>
 
     </div>
+    <?php
+        $doacao = new Doacoes();
+        
+        $dados = $doacao->buscarDados("cod_status_doacao = 1");
+        
+        if(count($dados) > 0){
+            foreach($dados as $i => $doacao){
+                $usuario = $doacao->getUsuario();
+                
+                echo "$usuario->url_foto_usuario";
+                echo "<br>";
+                echo "$usuario->nome_usuario";
+            }
+        }
+    ?>
     <script>    
          function Mudarestado(el) {
             <?php if(isset($_SESSION['id_usuario'])){ ?>
@@ -87,21 +103,24 @@
         }
     </script>
     <?php
-      
+
        $doacao = new Doacoes();
       if(isset($_POST['desc_doacao'])){
         $id_tipo_doa = (int)$_POST['tipo_doa'];
         $desc_doacao = addslashes($_POST['desc_doacao']);
-        //$url_foto_doacao = $_FILE['url_foto_doacao'];
+        $url_foto_doacao = $_FILES;
 
-        if(!empty($id_tipo_doa) && !empty($desc_doacao)){ //&& !empty($url_foto_doacao) ){ 
+        
+        $upload = new UploadImage($_FILES['url_foto_doacao'],  "view/imagens/doacao/");
+        $response = $upload->salvar();
+        
+       
+        if(!empty($id_tipo_doa) && !empty($desc_doacao) && $response['success']){ 
             $doacao->id_tipo_doa = $id_tipo_doa;
             $doacao->desc_doacao = $desc_doacao;
-            //$doacao->url_foto_doacao = $url_foto_doacao;
+            $doacao->url_foto_doacao = $response['url'];
 
-            $doacao->cadastrarDoacao(
-                $desc_doacao, $id_tipo_doa   //, $url_foto_doacao
-            );
+            $doacao->cadastrarDoacao();
           
             echo"<script>";
             echo "alert('Doação realizada com sucesso!')";

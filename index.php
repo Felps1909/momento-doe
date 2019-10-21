@@ -1,6 +1,7 @@
 <?php
     require_once "menu.php";
     use Source\Model\Rank;
+    use Source\Model\Depoimentos;
     $rank = new Rank();
 ?>
 <!DOCTYPE html>
@@ -46,20 +47,32 @@
     </div>
     <div class="depoimento-home">
         <h4>Depoimentos</h4>
-        <div class="dep-usuarios">
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-        </div>
-        <div class="dep-usuarios">
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-        </div>
+        <section class="depo-postite">
+        <?php
+            $depoimentos = new Depoimentos();
+            $dados = $depoimentos->buscarDados("cod_status_depoimentos = 1");
+
+            if(count($dados)>0){
+                foreach($dados as $i => $depoimentos){
+                    $usuario = $depoimentos->getUsuario();
+                    echo'<div class="postite">
+                            <div class="itenspost">
+    
+                                <img src="imagens/postite.png">
+                                <img src="imagens/usuario.png" class="ft-pessoa">
+                                <p class="nome">'.$usuario->nome_usuario.'</p>
+                                <p>'.$depoimentos->desc_conteudo_depoimentos.'</p>
+                    
+                            </div>
+                    
+                        </div>';
+                }
+            }
+
+        ?>
+            
+           
+        </section>
     </div>
     <div class="grandes-herois">
         <h4>Grandes Heróis</h4>

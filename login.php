@@ -23,11 +23,15 @@ require_once "menu.php";
                  header("location:perfil.php");
                 
             } else{
-                echo"email ou senha incorreta";
+                echo"<script>";
+                echo "alert('Email ou senha incorreta!')";
+                echo"</script>" ; 
             }
                     
         }else{
-             echo "preencha todos os campos";
+            echo"<script>";
+            echo "alert('Preencha todos os Campos!')";
+            echo"</script>" ; 
          }
     }
    

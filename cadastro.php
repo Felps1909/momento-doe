@@ -55,7 +55,9 @@
                 }  
 
             }else{
-                echo "Prencha todos os campos";
+                echo"<script>";
+                echo "alert('Preencha todos os Campos!')";
+                echo"</script>" ; 
             }
         }
     ?>

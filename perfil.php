@@ -1,10 +1,9 @@
 <?php
-    
-    if(isset($_SESSION['logado'])){
-        header("location:index.php");
-        exit;
-    
+   session_start();
+   if(!isset($_SESSION["id_usuario"])){ 
+    header("Location: login.php"); 
+    exit; 
+} 
+
 ?>
-<?php } else { ?>
-    <h2>Benvindo Putao</h2>
-<?php } ?>
+

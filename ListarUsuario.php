@@ -1,15 +1,14 @@
 <?php
      require_once "vendor/autoload.php";
      use Source\Model\Usuario;
+     use Source\Model\Depoimentos;
+     use Source\Model\Doacoes;
      require_once "menu.php";
-    $usuario = new Usuario();
-      if(isset($_GET['i'])){
-            $usuario = $usuario->buscarDados("id_usuario = {$_GET['i']}")[0];
-            $usuario->cod_status_usuario = 0;
-            $usuario->salvarDados();
-        }
-        
-    $dados = $usuario->buscarDados("cod_status_usuario = 1");
+
+    
+   
+
+   
 ?>
 <style>
      body{
@@ -26,7 +25,18 @@
         padding:0;
     }
 </style>
+<?php
+    $usuario = new Usuario();
+    $dadosUsuario = $usuario->buscarDados("cod_status_usuario = 1");
 
+     if(isset($_GET['i'])){
+        $usuario = $usuario->buscarDados("id_usuario = {$_GET['i']}")[0];
+        $usuario->cod_status_usuario = 0;
+        $usuario->salvarDados();
+    }
+    
+
+?>
 <table>
     <thead>
         <h3>Usuarios:</h3>
@@ -39,9 +49,9 @@
     </thead> 
     <tbody>
          <?php
-            if(count($dados) > 0){
+            if(count($dadosUsuario) > 0){
         
-                foreach ($dados as $i => $usuario) {
+                foreach ($dadosUsuario as $i => $usuario) {
                     
                     echo "
                     <tr>
@@ -64,3 +74,6 @@
 
     </tbody>       
 </table>
+
+
+

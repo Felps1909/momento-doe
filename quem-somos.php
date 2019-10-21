@@ -12,20 +12,20 @@
     <picture>            
         <source
             media="(max-width:480px)"
-            srcset="view/imagens/quemsomos.png"
+            srcset="imagens/quemsomos.png"
         />
 
         <source
             media="(max-width:343px)"
-            srcset="view/imagens/quemsomos.png"
+            srcset="imagens/quemsomos.png"
         />
 
         <source
             media="(min-width:320px)"
-            srcset="view/imagens/quemsomos.png"
+            srcset="imagens/quemsomos.png"
         />
 
-        <img class="imgq" src="view/imagens/quemsomos.png" alt="Quem Somos">
+        <img class="imgq" src="imagens/quemsomos.png" alt="Quem Somos">
     </picture>
     </div>
 

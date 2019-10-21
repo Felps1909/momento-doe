@@ -147,6 +147,7 @@ header {
   flex-direction: column;
   align-content: center;
   justify-content: flex-start;
+  text-align: center
 }
 .postite {
   position: relative;
@@ -161,14 +162,14 @@ header {
   position: absolute;
   text-align: center;
   top: 200px;
-  left: 125px;
+  left: 142px;
   z-index: 2;
 }
 .postite p {
   position: absolute;
-  text-align: center;
+  text-align: justify;
   top: 280px;
-  left: 50px;
+  left: 10px;
   z-index: 2;
 }
 .postite .ft-pessoa {

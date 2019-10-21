@@ -14,7 +14,7 @@
 <main>
     
     <div class="div-home">
-        <img class="img-home" src="view/imagens/HOME2.png" alt="">
+        <img class="img-home" src="imagens/HOME2.png" alt="">
         <h1 class="p1">O que você</h1>
         <h2 class="p2">pode doar hoje?</h2>
         <a href = "doacoes.php"><button>QUERO AJUDAR</button></a>
@@ -23,24 +23,24 @@
         <h2 class="p5">outros</h2>
     </div>
 
-    <img class="logomomento" src="view/imagens/logomomento.png" alt="Logo Momento Doe">
+    <img class="logomomento" src="imagens/logomomento.png" alt="Logo Momento Doe">
 
     <div class="motivacao">
         <div class="oque">
             <h3>O que é uma doação?</h3>
-             <img src="view/imagens/oqueedoacao.png">
+             <img src="imagens/oqueedoacao.png">
             <p>Uma doação acontece quando alguém (doador) opta por doar algo à alguma pessoa ou ONG, que esteja necessitando de algum recurso.</p>
         </div>
 
         <div class="oque">
             <h3>Por que doar?</h3>
-             <img src="view/imagens/porquedoar.png">
+             <img src="imagens/porquedoar.png">
             <p>Quem se sujeita a ajudar alguém através da doação, sente-se satisfeito em fazer o bem e presenciar a gratidão de quem recebe. Além disso, estará ajudando quem realmente necessita de algum recurso.</p>
         </div>
-        <img class="velhacadeira" src="view/imagens/velhacadeira.png">
+        <img class="velhacadeira" src="imagens/velhacadeira.png">
         <div class="oque">
             <h3>O que são ONGs?</h3>
-             <img src="view/imagens/oquesaoongs.png">
+             <img src="imagens/oquesaoongs.png">
             <p>São organizações não governamentais, que não possuem fins lucrativos. Elas desempenham um papel muito importante, pois oferecem projetos e serviços variados, a fim de ajudar a sociedade em vários aspectos.</p>
         </div>
     </div>
@@ -87,8 +87,8 @@
                 foreach($classificados as $i => $usuario){
                     echo '
                <div class="us-rank" ' . ($i == 2 ? 'style="width: 100%;"' : '')  . '>
-                    <img class ="coroa" src="view/imagens/coroaouro.png">
-                    <img class = "ft_us_rank" src="view/imagens/usuario.png">
+                    <img class ="coroa" src="imagens/coroaouro.png">
+                    <img class = "ft_us_rank" src="imagens/usuario.png">
                     <p class="nome">'.$usuario['nome_usuario'].'</p>
                     <p class="nota">'.exibirNota(5 - $i).'</p>
                </div>';
@@ -101,7 +101,7 @@
             }
             ?>
            <h4 class="pode-doar">O que você pode doar?</h4>
-           <img  class ="imgdoar" src="view/imagens/oquevcpodoar.png">
+           <img  class ="imgdoar" src="imagens/oquevcpodoar.png">
     </div>
 </main>
 

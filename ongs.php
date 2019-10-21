@@ -17,7 +17,7 @@
 <main>
     <div class="div-ongs">
          <h1 class="h1O">ONGs</h1>
-        <img src="view/imagens/ongs.png" class = "img-ongs">
+        <img src="imagens/ongs.png" class = "img-ongs">
         <p class="p1O">Ajude-nos a fazer<p>
         <p class="p2O">O bem<p>
         <a href = "doacoes.php"><button>PEÇA AJUDA</button></a>
@@ -31,24 +31,24 @@
     </div>
     <div id="filtro" class="itens-filtro hidden">
     <figure class="tempo">
-        <img src="view/imagens/tempo.png">
+        <img src="imagens/tempo.png">
         <figcaption>Tempo</figcaption>
     </figure>
     <figure class="roupa">
-        <img src="view/imagens/roupas.png">
+        <img src="imagens/roupas.png">
         <figcaption>Roupas</figcaption>
     </figure>
     <figure class="comida">
-        <img src="view/imagens/comida.png">
+        <img src="imagens/comida.png">
         <figcaption>Comida</figcaption>
     </figure>
     <figure class="dinheiro">
-        <img src="view/imagens/dinheiro.png">
+        <img src="imagens/dinheiro.png">
         <figcaption>Dinheiro</figcaption>
     </figure>
  
     <figure class="outros">
-        <img src="view/imagens/outros.png">
+        <img src="imagens/outros.png">
         <figcaption>Outros</figcaption>
     </figure>
 </div>  
@@ -60,9 +60,9 @@
         }
     </script>
     <div class="publicacoes">
-        <img class="us" src="view/imagens/usuario.png">
+        <img class="us" src="imagens/usuario.png">
         <p>Adulto Salvação</p>
-        <img class="pessoa" src="view/imagens/pessoa.jpg">
+        <img class="pessoa" src="imagens/pessoa.jpg">
         <p class="desc">Estamos precisando de roupas infantis de frio
              para nossos adultos e queremos muito sua ajuda. Ajude nossas adultos!</p>
         

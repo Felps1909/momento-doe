@@ -8,8 +8,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" type="image/x-icon" href="view/imagens/logomomento.png">
-    <link href="view/css/style.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" type="image/x-icon" href="imagens/logomomento.png">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
     
 </head>
 <body>
@@ -64,9 +64,9 @@
                <section class="menucima">
                     <span id="bars" onclick="openNav()">&#9776;</span> 
 
-                    <a href="index.php"><img class="logo-menu" src="view/imagens/logodomenu.png"></a>
+                    <a href="index.php"><img class="logo-menu" src="imagens/logodomenu.png"></a>
 
-                    <a href="perfil.php"><img class="btn-perfil" src="view/imagens/perfil.png"></a>
+                    <a href="perfil.php"><img class="btn-perfil" src="imagens/perfil.png"></a>
                 </section>
             </article>
             <article>

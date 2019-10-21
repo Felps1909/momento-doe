@@ -1,11 +1,16 @@
 <?php
     require_once "menu.php";
-    // var_dump($_SESSION);
+    use Source\Model\Depoimentos;
+   
+
+    // $doacao = new Doacoes();
+   
+    
 ?>
 <main>
      <div class="div-depoimento">
          <h1>DEPOIMENTOS</h1>
-        <!-- <img src="view/imagens/doacao.png" class = "img-doacao"> -->
+         <!-- <img src="imagens/depoimentos.jpg" class = "img-doacao">  -->
         <p>Inspire outras pessoas<p>
         <p>A fazer o bem<p>
         <button onClick="Mudarestado()" class="dar-depoimento">DAR DEPOIMENTO</button>
@@ -14,7 +19,7 @@
 
             <div id="doar" class="doar hidden">
                 <form method="post">
-                    <textarea name="depoimento">
+                    <textarea name="desc_conteudo_depoimentos">
             Escreva aqui seu depoimento!
                     </textarea>
                     <input type="file" name="img-doacao">
@@ -23,7 +28,28 @@
                 </form>
             </div>
     </div>
-    
+    <?php
+        $depoimento = new Depoimentos();
+        if(isset($_POST['desc_conteudo_depoimentos'])){
+            $desc_conteudo_depoimentos = addslashes($_POST['desc_conteudo_depoimentos']);
+
+            if(!empty($desc_conteudo_depoimentos)){
+                $depoimento->desc_conteudo_depoimentos = $desc_conteudo_depoimentos;
+                $depoimento->cadastrarDepoimento();
+                
+               
+
+                echo"<script>";
+                echo "alert('Depoimento realizado com sucesso!')";
+                echo"</script>" ;    
+            }else{
+                echo"<script>";
+                echo "alert('Preencha todos os Campos!')";
+                echo"</script>" ; 
+              }
+        }
+
+    ?>
     <script>    
         function Mudarestado(el) {
             <?php if(isset($_SESSION['id_usuario'])){ ?>
@@ -38,26 +64,34 @@
     
     <article>
         <section class="depo-postite">
-            <div class="postite">
-                <div class="itenspost">
+        <?php
+            $depoimentos = new Depoimentos();
+            $dados = $depoimentos->buscarDados("cod_status_depoimentos = 1");
 
-                <img src="view/imagens/postite.png">
-                <img src="view/imagens/usuario.png" class="ft-pessoa">
-                <p class="nome">Ana Laura</p>
-                <p>Gostei de realizar a doaçao</p>
-                
-                </div>
-                
-            </div>
-            <div class="postite">
-                <img src="view/imagens/postite.png">
-                <img src="view/imagens/usuario.png" class="ft-pessoa">
-                <p class="nome">Ana Laura</p>
-                <p>Gostei de realizar a doaçao</p>
-            </div>
+            if(count($dados)>0){
+                foreach($dados as $i => $depoimentos){
+                    $usuario = $depoimentos->getUsuario();
+                    echo'<div class="postite">
+                            <div class="itenspost">
+    
+                                <img src="imagens/postite.png">
+                                <img src="imagens/usuario.png" class="ft-pessoa">
+                                <p class="nome">'.$usuario->nome_usuario.'</p>
+                                <p>'.$depoimentos->desc_conteudo_depoimentos.'</p>
+                    
+                            </div>
+                    
+                        </div>';
+                }
+            }
+
+        ?>
+            
+           
         </section>
 
     </article>
+    
 </main>
 <?php
     require_once "footer.php";

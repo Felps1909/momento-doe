@@ -52,24 +52,24 @@
     </div>
     <div id="filtro" class="itens-filtro hidden">
         <a href="?q=1"><figure class="tempo">
-            <img src="view/imagens/tempo.png">
+            <img src="imagens/tempo.png">
             <figcaption>Tempo</figcaption>
         </figure></a>
         <a href="?q=2"><figure class="roupa">
-            <img src="view/imagens/roupas.png">
+            <img src="imagens/roupas.png">
             <figcaption>Roupas</figcaption>
         </figure></a>
         <a href="?q=3"><figure class="comida">
-            <img src="view/imagens/comida.png">
+            <img src="imagens/comida.png">
             <figcaption>Comida</figcaption>
         </figure>
          <a href="?q=4"><figure class="dinheiro">
-            <img src="view/imagens/dinheiro.png">
+            <img src="imagens/dinheiro.png">
             <figcaption>Dinheiro</figcaption>
         </figure> </a>
      
          <a href="?q=5"><figure class="outros">
-            <img src="view/imagens/outros.png">
+            <img src="imagens/outros.png">
             <figcaption>Outros</figcaption>
         </figure> </a>
          <a href="doacoes.php"><figure class="limpar">
@@ -93,7 +93,7 @@
                 $usuario = $doacao->getUsuario();              
                 echo' <img src="'.$usuario->url_foto_usuario.'" class="ft-usuario">
                         <p class = "nome-usuario">'.$usuario->nome_usuario.'</p>
-                        <img src ="' . (is_null($doacao->url_foto_doacao) ? 'view/imagens/imgdefault.png' : $doacao->url_foto_doacao) . '" class = "img-desc-doacao">
+                        <img src ="' . (is_null($doacao->url_foto_doacao) ? 'imagens/imgdefault.png' : $doacao->url_foto_doacao) . '" class = "img-desc-doacao">
                         <p class="desc-doacao">'.$doacao->desc_doacao.'<p>';
                 }
             }
@@ -123,7 +123,7 @@
         $url_foto_doacao = $_FILES;
 
         
-        $upload = new UploadImage($_FILES['url_foto_doacao'],  "view/imagens/doacao/");
+        $upload = new UploadImage($_FILES['url_foto_doacao'],  "imagens/doacao/");
         $response = $upload->salvar();
         
        
@@ -138,6 +138,10 @@
             echo "alert('Doação realizada com sucesso!')";
             echo"</script>" ;    
     
+      }else{
+        echo"<script>";
+        echo "alert('Preencha todos os Campos!')";
+        echo"</script>" ; 
       }
     }
 

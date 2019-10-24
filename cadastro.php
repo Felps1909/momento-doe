@@ -2,6 +2,7 @@
     require_once "menu.php";
     use Source\Model\Usuario;
     use  Source\Model\UploadImage;
+    use Source\Model\TipoUsuario;
   
  
 ?>
@@ -22,7 +23,7 @@
             $tipo_usuario = (int)$_POST['tipos'];
             $cnpj = preg_replace("/[^0-9]/","",$_POST['cnpj']);
             $cpf = preg_replace("/[^0-9]/","",$_POST['cpf']);
-            $id_doc = $tipo_usuario == 1 ? $cnpj : $cpf;
+            $id_doc = $tipo_usuario == TipoUsuario::ONG ? $cnpj : $cpf;
             $url_foto_usuario = $_FILES;
 
         //    echo "<pre>";
@@ -57,7 +58,7 @@
 
                     
                     $_SESSION['id_usuario'] = $usuario->id_usuario;
-                    $_SESSION['id_tipo_us'] = $tipo_usuario;
+                    $_SESSION['id_tipo_us'] = $usuario->id_tipo_us;
                     
 
                     echo"<script>";

@@ -4,7 +4,7 @@
     use  Source\Model\TipoDoacao;
     use  Source\Model\Doacoes;
     use  Source\Model\UploadImage;
-
+    use  Source\Model\TipoUsuario;
 ?>
 
 <head>
@@ -23,7 +23,12 @@
         <!-- <img src="view/imagens/doacao.png" class = "img-doacao"> -->
         <p class="pd1">Faça sua Parte<p>
         <p class="pd2">Também!<p>
-        <button onClick="Mudarestado()">DOAR</button>
+        <?php
+            if(@$_SESSION['id_tipo_us'] == TipoUsuario::PESSOA){
+                echo'<button onClick="Mudarestado()">DOAR</button>';
+            }
+        
+        ?>
         <p class="pd3">Essas pessoas já estão</p>
         <p class="pd4">Fazendo o bem<p>
 
@@ -87,14 +92,21 @@
 
             }else{
                 $dados = $doacao->buscarDados("cod_status_doacao = 1");
-            }    
+            }   
+
             if(count($dados) > 0){
             foreach($dados as $i => $doacao){
-                $usuario = $doacao->getUsuario();              
-                echo' <div class="doacoes2"><img src="'.$usuario->url_foto_usuario.'" class="ft-usuario">
+                    $usuario = $doacao->getUsuario();
+                
+                    if($usuario->getTipoUsuario()->id_tipo_us == TipoUsuario::PESSOA){
+                        echo' <div class="doacoes2"><img src="'.$usuario->url_foto_usuario.'" class="ft-usuario">
                         <p class = "nome-usuario">'.$usuario->nome_usuario.'</p>
                         <img src ="' . (is_null($doacao->url_foto_doacao) ? 'imagens/imgdefault.png' : $doacao->url_foto_doacao) . '" class = "img-desc-doacao">
-                        <p class="desc-doacao">'.$doacao->desc_doacao.'<p></div>';
+                        <p class="desc-doacao">'.$doacao->desc_doacao.'<p></div>
+                        '.(@$_SESSION['id_tipo_us'] == TipoUsuario::ONG ? '<a href="perfil.php?i='.$usuario->id_usuario.'">Entrar em Contato</a>':'').'
+                        ';
+                    }
+               
                 }
             }else{
                 echo "Não há doaçoes no momento!";
@@ -129,10 +141,10 @@
         $response = $upload->salvar();
         
        
-        if(!empty($id_tipo_doa) && !empty($desc_doacao) && $response['success']){ 
+        if(!empty($id_tipo_doa) && !empty($desc_doacao) ){ 
             $doacao->id_tipo_doa = $id_tipo_doa;
             $doacao->desc_doacao = $desc_doacao;
-            $doacao->url_foto_doacao = $response['url'];
+            $doacao->url_foto_doacao = @$response['url'];
 
             $doacao->cadastrarDoacao();
           

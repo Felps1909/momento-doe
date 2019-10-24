@@ -19,7 +19,7 @@ class Usuario
 
     public function salvarDados()
     {
-        if($this->id_tipo_us == 1){
+        if($this->id_tipo_us == TipoUsuario::ONG){
             if(!$this->validarCNPJ()){
 
                 return [
@@ -161,7 +161,7 @@ class Usuario
 
     public function logarUsuario($email_usuario, $senha_usuario)
     {
-        $query = Connect::getInstance()->prepare("SELECT id_usuario from usuario where 
+        $query = Connect::getInstance()->prepare("SELECT * from usuario where 
         email_usuario = :e and senha_usuario= :s");
         
         $query->bindValue(':e',$email_usuario);
@@ -171,7 +171,19 @@ class Usuario
         if($query->rowCount()>0){
             
             $dados = $query->fetch();
-            
+
+            $this->id_usuario = $dados['id_usuario'];
+            $this->nome_usuario = $dados['nome_usuario'];
+            $this->id_usuario = $dados['id_usuario'];
+            $this->senha_usuario = $dados['senha_usuario'];
+            $this->tel_usuario = $dados['tel_usuario'];
+            $this->email_usuario = $dados['email_usuario'];
+            $this->url_foto_usuario = $dados['url_foto_usuario'];
+            $this->cod_status_usuario = $dados['cod_status_usuario'];
+            $this->id_tipo_us = $dados['id_tipo_us'];
+            $this->id_doc = $dados['id_doc'];
+
+
             $_SESSION['id_usuario'] = $dados['id_usuario'];
 
 

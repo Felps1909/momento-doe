@@ -18,8 +18,10 @@ require_once "menu.php";
         
         if(!empty($senha_usuario) && !empty($email_usuario)){
             if($usuario->logarUsuario($email_usuario, $senha_usuario)){
-               
+                    
                  $_SESSION['logado'] = true;
+                 $_SESSION['id_tipo_us'] = $usuario->getTipoUsuario()->id_tipo_us;
+
                  header("location:perfil.php");
                 
             } else{

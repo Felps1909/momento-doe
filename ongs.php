@@ -4,6 +4,7 @@
     use  Source\Model\TipoDoacao;
     use  Source\Model\Doacoes;
     use  Source\Model\UploadImage;
+    use  Source\Model\TipoUsuario;
 
 ?>
 
@@ -24,18 +25,17 @@
         <img src="imagens/ongs.png" class = "img-ongs">
         <p class="p1O">Ajude-nos a fazer<p>
         <p class="p2O">O bem<p>
-        <button onClick="Mudarestado()">Peça Ajuda</button>
+        <?php
+            if(@$_SESSION['id_tipo_us'] == TipoUsuario::ONG){
+                echo '<button onClick="Mudarestado()">Peça Ajuda</button>';
+            }
+        
+        
+        ?>
         <p class="p3O">Veja o que essas ONGs estão</p>
         <p class="p4O">Precisando<p>    
     
-    <!-- <div class="div-doacao">
-         <h1>DOAÇÕES</h1>
-      
-        <p class="pd1">Faça sua Parte<p>
-        <p class="pd2">Também!<p>
-        <button onClick="Mudarestado()">DOAR</button>
-        <p class="pd3">Essas pessoas já estão</p>
-        <p class="pd4">Fazendo o bem<p> -->
+    
 
             <div id="doar" class="doar hidden">
                 <form method="post" enctype="multipart/form-data">
@@ -101,12 +101,16 @@
             
             if(count($dados) > 0){
             foreach($dados as $i => $doacao){
-                $usuario = $doacao->getUsuario();          
-                echo' <div class="doacoes2"><img src="'.$usuario->url_foto_usuario.'" class="ft-usuario">
-                        <p class = "nome-usuario">'.$usuario->nome_usuario.'</p>
-                        <img src ="' . (is_null($doacao->url_foto_doacao) ? 'imagens/imgdefault.png' : $doacao->url_foto_doacao) . '" class = "img-desc-doacao">
-                        <p class="desc-doacao">'.$doacao->desc_doacao.'<p></div>';
+                $usuario = $doacao->getUsuario();  
+                
+                if($usuario->getTipoUsuario()->id_tipo_us == TipoUsuario::ONG){
+                    echo' <div class="doacoes2"><img src="'.$usuario->url_foto_usuario.'" class="ft-usuario">
+                    <p class = "nome-usuario">'.$usuario->nome_usuario.'</p>
+                    <img src ="' . (is_null($doacao->url_foto_doacao) ? 'imagens/imgdefault.png' : $doacao->url_foto_doacao) . '" class = "img-desc-doacao">
+                    <p class="desc-doacao">'.$doacao->desc_doacao.'<p></div>';
                 }
+            }
+               
             }else{
                 echo "Não há Solicitaçoes no momento!";
             }
@@ -140,10 +144,10 @@
         $response = $upload->salvar();
         
        
-        if(!empty($id_tipo_doa) && !empty($desc_doacao) && $response['success']){ 
+        if(!empty($id_tipo_doa) && !empty($desc_doacao)){ 
             $doacao->id_tipo_doa = $id_tipo_doa;
             $doacao->desc_doacao = $desc_doacao;
-            $doacao->url_foto_doacao = $response['url'];
+            $doacao->url_foto_doacao = @$response['url'];
 
             $doacao->cadastrarDoacao();
           

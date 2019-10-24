@@ -12,18 +12,23 @@ use Source\Model\Usuario;
 <main >
    <?php
     $usuario = new Usuario();
-    $id = $_SESSION['id_usuario'];
+   if(isset($_GET['i'])){
+        $id = $_GET['i'];
+   }else{
+        $id = $_SESSION['id_usuario']; 
+   }
+     
      $dadosUsuario = $usuario->buscarDados("id_usuario = {$id}");
         if(count($dadosUsuario) > 0){
         
             foreach ($dadosUsuario as $usuario) {
-                
+                $id_tipo_us = $usuario->getTipoUsuario()->id_tipo_us;
                 echo '  <div class="info-usuario">
                 <figure>
                     <figcaption>'.$usuario->nome_usuario.'</figcaption>
                     <img src ="' . (is_null($usuario->url_foto_usuario) ? 'imagens/usuario.png' : $usuario->url_foto_usuario) . '">
                 </figure>
-                <a href="editarperfil.php?i='.$usuario->id_usuario.'">Editar Perfil</a>
+                '.(isset($_GET['i']) ?'':'<a href="editarperfil.php?i='.$usuario->id_usuario.'">Editar Perfil</a>').'
             </div>';
             }
         }
@@ -42,7 +47,7 @@ use Source\Model\Usuario;
          <div id="icon2"><img src="imagens/depoimentosicon.png"></div>
          <div id="icon3"><img src="imagens/rankign.png"></div>
     </div> -->
-  
+ 
     <div class="actions-perfil">
         <p class="txt-perfil">Agora que você já faz parte dessa corrente do bem:</p>
 
@@ -50,16 +55,32 @@ use Source\Model\Usuario;
          <img class="boneco2" src="imagens/boneco1roxo.png">   
          <img class="boneco3" src="imagens/boneco2roxo.png"> 
     </div>   
-    <div class="div-balao1">  
-         <img class="balao1" src="imagens/balaozinho.png" alt="balaoconversa">
-         <p class="ajudar">Que tal ajudar alguém?</p>   
-         <a href="doacoes.php"><button>DOAR</button></a>                
-    </div>
-    <div  class="div-balao2">    
-         <img class="balao2" src="imagens/balaozinho2.png" alt="balaoconversa">
-         <span class="depoimentar">Já fez sua parte? 
-             Dê um depoimento e incentive outros a ajudar!</span>
-             <a href="depoimentos.php"><button>DAR DEPOIMENTO</button></a> 
-    </div>
+    
+    <?php
+        
+        if(!isset($_GET['i'])){
+
+            echo'<div class="div-balao1">  
+            <img class="balao1" src="imagens/balaozinho.png" alt="balaoconversa">
+            <p class="ajudar">Que tal ajudar alguém?</p>   
+            <a href="doacoes.php"><button>DOAR</button></a>                
+            </div>'; 
+            
+            if($id_tipo_us == TipoUsuario::PESSOA){
+
+                echo '<div  class="div-balao2">    
+                <img class="balao2" src="imagens/balaozinho2.png" alt="balaoconversa">
+                <span class="depoimentar">Já fez sua parte? 
+                    Dê um depoimento e incentive outros a ajudar!</span>
+                    <a href="depoimentos.php"><button>DAR DEPOIMENTO</button></a> 
+                </div>';
+            }
+           
+        }
+        
+       
+  
+    ?>
+    
 
 </main>

@@ -9,6 +9,8 @@ class TipoUsuario
     public $desc_tipo_us;
     public $cod_status_tipo_us;
 
+    const PESSOA = 2;
+    const ONG = 1;
     // public function buscarDados()
     // {
 

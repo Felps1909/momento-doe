@@ -1,6 +1,7 @@
 <?php
     require_once "menu.php";
     use Source\Model\Usuario;
+    use  Source\Model\UploadImage;
   
  
 ?>
@@ -20,10 +21,14 @@
             $email_usuario = addslashes($_POST['email_usuario']);
             $tipo_usuario = (int)$_POST['tipos'];
             $id_doc = preg_replace("/[^0-9]/","",$_POST['id_doc']);
-            //$tel_usuario = addslashes($_POST['tel_usuario']);
+            $url_foto_usuario = $_FILES;
+
+        
+            $upload = new UploadImage($_FILES['url_foto_usuario'],  "imagens/perfil/");
+            $response = $upload->salvar();
             
             if(!empty($nome_usuario) && !empty($senha_usuario)
-             && !empty($email_usuario) && !empty($tipo_usuario)){
+             && !empty($email_usuario) && !empty($tipo_usuario) && $response['success']){
 
                 if(!$id_usuario && count($usuario->buscarDados("email_usuario = '$email_usuario'"))> 0){
                     // echo "<pre>";
@@ -36,13 +41,14 @@
                     $usuario->senha_usuario = $senha_usuario;
                     $usuario->email_usuario = $email_usuario;
                     $usuario->id_tipo_us = $tipo_usuario;
-
+                    $doacao->url_foto_usuario = $response['url_foto_usuario'];
                     $usuario->id_doc = $id_doc;
                     
                    
                     $usuario->salvarDados();
                
                     $_SESSION['id_usuario'] = $usuario->id_usuario;
+                    $_SESSION['id_tipo_us'] = $tipo_usuario;
                     
 
                     echo"<script>";
@@ -91,9 +97,12 @@
             <input type="hidden" name="id_usuario" value ="<?php echo $usuario->id_usuario;?>" >
        
        <div id="empresa" class="hidden">
-            
+                 <label class="btn-foto" for='selecao-arquivo'>
+                    <img src="imagens/editperf.png"  class = "edtft-btn">
+                </label>
+                <input id='selecao-arquivo' type='file' name="url_foto_usuario">
                
-       <label>Nome</label>
+                <label>Nome</label>
                 <input class="input" type="text" name="nome_usuario" value="<?php echo $usuario->nome_usuario;?>">
 
                 
@@ -118,7 +127,11 @@
             
        </div>
        <div id="pessoa">
-        
+                <label class="btn-foto" for='selecao-arquivo'>
+                    <img src="imagens/editperf.png"  class = "edtft-btn">
+                </label>
+                <input id='selecao-arquivo' type='file' name="url_foto_usuario">
+
                 <label>Nome</label>
                 <input class="input" type="text" name="nome_usuario" value="<?php echo $usuario->nome_usuario;?>">
 

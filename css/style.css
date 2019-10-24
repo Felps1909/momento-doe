@@ -245,16 +245,29 @@ header {
 }
 .div-doacao h1 {
   z-index: 2;
+  padding: 50px 25px;
+  padding-bottom: 0;
   color: white;
 }
 .div-doacao p {
   color: white;
   font-size: 20px;
-  position: absolute;
 }
+.pd1{
+ padding: 15px 0px 0 25px;
+}
+.pd2{
+  padding: 5px 25px;
+ }
+ .pd3{
+  padding: 60px 0px 0 25px;
+ }
+ .pd4{
+  padding: 5px 25px;
+ }
 .h11 {
   position: absolute;
-  top: 100px;
+  top: 200px;
   left: 20px;
 }
 .p11 {
@@ -817,10 +830,15 @@ main {
   margin: 0;
 }
 .doacao {
-  background-color: white;
   width: 100%;
   position: relative;
   margin-top: 50px;
+ 
+}
+.doacoes2{
+  background-color: white;
+  margin-bottom: 40px;
+  height: 0 auto;
 }
 .ft-usuario {
   width: 50px;
@@ -890,6 +908,7 @@ main {
     padding: 15px 15px;
  }
  .info-usuario figure figcaption{
+  color:white;
   padding: 10px 10px;
   padding-bottom: 0px;
 }
@@ -902,14 +921,14 @@ main {
   float: right;
   padding: 5px 5px;
   font-size: 12px;
-  border: 1px solid  rgb(168, 143, 197);;
+  border: 1px solid;
   border-radius: 5px;
   margin: 10px 5px;
-  background-color: rgb(168, 143, 197);
+  background-color:#8800ff;
   cursor: pointer;
 }
 .info-usuario{
-  background: url("../imagens/imgdefault.png") no-repeat;
+  background-color: rgb(168, 143, 197);
   width: 100%;
   background-size: cover;
   height: 200px;
@@ -1009,6 +1028,15 @@ main {
   top: 660px;
   left: 130px;
 }
+.edt-perfil{
+  width: 100%;
+}
+.edtft-btn{
+    width: 150px;
+    padding: 50px 80px
+
+    
+  }
 /***exibição de mensagem***/
 @media only screen and (min-width: 481px) {
   .exibmsg {

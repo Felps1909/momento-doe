@@ -85,7 +85,7 @@
         </header>
         <div class="exibmsg">
         <p>Desculpe! Momento Doe esta disponivel somente para mobile.<p>
-        <img class="img-msg" src="view/imagens/logomomento.png">
+        <img class="img-msg" src="imagens/logomomento.png">
         </div>  
     </body>
 </html>

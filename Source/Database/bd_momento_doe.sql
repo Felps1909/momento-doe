@@ -55,7 +55,7 @@ CREATE TABLE `depoimentos` (
   `cod_depoimentos` int(11) NOT NULL AUTO_INCREMENT,
   `desc_conteudo_depoimentos` varchar(60) DEFAULT NULL,
   `data_hora_depoimentos` varchar(60) DEFAULT NULL,
-  `cod_status_depoimentos` varchar(60) DEFAULT NULL,
+  `cod_status_depoimentos` varchar(60) NOT NULL DEFAULT '1',
   `id_usuario` int(11) NOT NULL,
   PRIMARY KEY (`cod_depoimentos`),
   KEY `id_usuario` (`id_usuario`),

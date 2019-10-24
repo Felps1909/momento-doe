@@ -99,9 +99,9 @@
 
                 foreach($classificados as $i => $usuario){
                     echo '
-               <div class="us-rank" ' . ($i == 2 ? 'style="width: 100%;"' : '')  . '>
+               <div class="us-rank" ' . ($i == 2 ? 'style="padding:25px 80px;"' : '')  . '>
                     <img class ="coroa" src="imagens/coroaouro.png">
-                    <img class = "ft_us_rank" src="imagens/usuario.png">
+                    <img class = "ft_us_rank" src="' . (is_null($usuario['url_foto_usuario']) ? 'imagens/usuario.png' : $usuario['url_foto_usuario']) . '"">
                     <p class="nome">'.$usuario['nome_usuario'].'</p>
                     <p class="nota">'.exibirNota(5 - $i).'</p>
                </div>';

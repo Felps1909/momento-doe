@@ -1,31 +1,47 @@
 <?php
     require_once "menu.php";
    @session_start();
-   if(!isset($_SESSION["id_usuario"])){ 
+   if(!isset($_SESSION["id_usuario"])){
+    session_destroy(); 
     header("Location: login.php"); 
     exit; 
 } 
+use Source\Model\Usuario;
 
 ?>
 <main >
-    <div class="info-usuario">
-        <figure>
-            <figcaption>Felipe Medeiros</figcaption>
-            <img src="imagens/usuario.png">
-        </figure>
-        <a href="#">Editar Perfil</a>
-    </div>
-    <div id="grid_container">
-        <div><h3><a href="">Doações</a></h3></div>
-        <div><h3><a href="">Depoimentos</a></h3></div>
-        <div><h3><a href="U25">Ranking</a></h3></div>
+   <?php
+    $usuario = new Usuario();
+    $id = $_SESSION['id_usuario'];
+     $dadosUsuario = $usuario->buscarDados("id_usuario = {$id}");
+        if(count($dadosUsuario) > 0){
+        
+            foreach ($dadosUsuario as $usuario) {
+                
+                echo '  <div class="info-usuario">
+                <figure>
+                    <figcaption>'.$usuario->nome_usuario.'</figcaption>
+                    <img src ="' . (is_null($usuario->url_foto_usuario) ? 'imagens/usuario.png' : $usuario->url_foto_usuario) . '">
+                </figure>
+                <a href="editarperfil.php?i='.$usuario->id_usuario.'">Editar Perfil</a>
+            </div>';
+            }
+        }
+   
+   ?>
+
+  
+    <!-- <div id="grid_container">
+        <div><h3>Doações</h3></div>
+        <div><h3>Depoimentos</h3></div>
+        <div><h3>Ranking</h3></div>
     </div>
 
     <div id="grid_container2">
-         <div id="icon1"><a href=""><img src="imagens/coracao.png"></a></div>
-         <div id="icon2"><a href=""><img src="imagens/depoimentosicon.png"></a></div>
-         <div id="icon3"><a href="U25"><img src="imagens/rankign.png"></a></div>
-    </div>
+         <div id="icon1"><img src="imagens/coracao.png"></div>
+         <div id="icon2"><img src="imagens/depoimentosicon.png"></div>
+         <div id="icon3"><img src="imagens/rankign.png"></div>
+    </div> -->
   
     <div class="actions-perfil">
         <p class="txt-perfil">Agora que você já faz parte dessa corrente do bem:</p>

@@ -21,11 +21,11 @@
     <div class="div-doacao">
          <h1>DOAÇÕES</h1>
         <!-- <img src="view/imagens/doacao.png" class = "img-doacao"> -->
-        <p>Faça sua Parte<p>
-        <p>Também!<p>
+        <p class="pd1">Faça sua Parte<p>
+        <p class="pd2">Também!<p>
         <button onClick="Mudarestado()">DOAR</button>
-        <p>Essas pessoas já estão</p>
-        <p>Fazendo o bem<p>
+        <p class="pd3">Essas pessoas já estão</p>
+        <p class="pd4">Fazendo o bem<p>
 
             <div id="doar" class="doar hidden">
                 <form method="post" enctype="multipart/form-data">
@@ -91,11 +91,13 @@
             if(count($dados) > 0){
             foreach($dados as $i => $doacao){
                 $usuario = $doacao->getUsuario();              
-                echo' <img src="'.$usuario->url_foto_usuario.'" class="ft-usuario">
+                echo' <div class="doacoes2"><img src="'.$usuario->url_foto_usuario.'" class="ft-usuario">
                         <p class = "nome-usuario">'.$usuario->nome_usuario.'</p>
                         <img src ="' . (is_null($doacao->url_foto_doacao) ? 'imagens/imgdefault.png' : $doacao->url_foto_doacao) . '" class = "img-desc-doacao">
-                        <p class="desc-doacao">'.$doacao->desc_doacao.'<p>';
+                        <p class="desc-doacao">'.$doacao->desc_doacao.'<p></div>';
                 }
+            }else{
+                echo "Não há doaçoes no momento!";
             }
         ?>
     

@@ -31,13 +31,10 @@
                     // die();
                     echo "Email Ja cadastrado";
                 }else{
-                    // $usuario->id_usuario = 1;
+                    
                     $usuario->nome_usuario = $nome_usuario;
                     $usuario->senha_usuario = $senha_usuario;
-                    //$usuario->tel_usuario = ;
                     $usuario->email_usuario = $email_usuario;
-                    //$usuario->url_foto_usuario;
-                    //$usuario->cod_status_tipo_us;
                     $usuario->id_tipo_us = $tipo_usuario;
 
                     $usuario->id_doc = $id_doc;
@@ -103,7 +100,7 @@
 
 
                 <label>E-mail</label>
-                <input class="input" type="text" name="email_usuario" value="<?php echo $usuario->email_usuario;?>">
+                <input class="input" type="text"  name="email_usuario" value="<?php echo $usuario->email_usuario;?>">
 
                 
 
@@ -129,7 +126,7 @@
 
 
                 <label>E-mail</label>
-                <input class="input" type="text" name="email_usuario" value="<?php echo $usuario->email_usuario;?>">
+                <input class="input" type="text"  name="email_usuario" value="<?php echo $usuario->email_usuario;?>">
 
                 
 
@@ -147,6 +144,7 @@
             
        </div>
        </form>
+    
     </main>  
 <?php
     require_once "footer.php";

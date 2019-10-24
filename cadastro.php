@@ -20,16 +20,22 @@
             $senha_usuario = hash("sha256",addslashes($_POST['senha_usuario']));
             $email_usuario = addslashes($_POST['email_usuario']);
             $tipo_usuario = (int)$_POST['tipos'];
-            $id_doc = preg_replace("/[^0-9]/","",$_POST['id_doc']);
+            $cnpj = preg_replace("/[^0-9]/","",$_POST['cnpj']);
+            $cpf = preg_replace("/[^0-9]/","",$_POST['cpf']);
+            $id_doc = $tipo_usuario == 1 ? $cnpj : $cpf;
             $url_foto_usuario = $_FILES;
 
-        
-            $upload = new UploadImage($_FILES['url_foto_usuario'],  "imagens/perfil/");
+        //    echo "<pre>";
+        //    print_r($_FILES);
+          
+            
+            $upload = new UploadImage(@$_FILES['url_foto_usuario'],  "imagens/perfil/");
             $response = $upload->salvar();
             
             if(!empty($nome_usuario) && !empty($senha_usuario)
              && !empty($email_usuario) && !empty($tipo_usuario) && $response['success']){
 
+               
                 if(!$id_usuario && count($usuario->buscarDados("email_usuario = '$email_usuario'"))> 0){
                     // echo "<pre>";
                     // print_r($query);
@@ -41,12 +47,15 @@
                     $usuario->senha_usuario = $senha_usuario;
                     $usuario->email_usuario = $email_usuario;
                     $usuario->id_tipo_us = $tipo_usuario;
-                    $doacao->url_foto_usuario = $response['url_foto_usuario'];
+                    $usuario->url_foto_usuario = $response['url'];
                     $usuario->id_doc = $id_doc;
                     
                    
-                    $usuario->salvarDados();
-               
+                    $response = $usuario->salvarDados();
+                    
+                    if($response['success']){
+
+                    
                     $_SESSION['id_usuario'] = $usuario->id_usuario;
                     $_SESSION['id_tipo_us'] = $tipo_usuario;
                     
@@ -55,6 +64,11 @@
                     echo "alert('Cadastrado com Sucesso')";
                     echo"</script>";
                     header("location:login.php");
+                    }else{
+                        echo"<script>";
+                        echo "alert('".$response['message']."')";
+                        echo"</script>" ; 
+                    }
                 }  
 
             }else{
@@ -88,7 +102,7 @@
             <a href="login.php" class="btn-cadastro">Login</a>
        </div>
        
-          <form method ="post" class="form-campos">
+          <form method ="post" class="form-campos" enctype="multipart/form-data">
             <div class="tipos">
                 <span onClick="toggleRegister(this)"><input type="radio" name="tipos" value="1"> ONGS</span>
                 <span onClick="toggleRegister(this)"><input type="radio" name="tipos" value="2" checked> PESSOA</span>
@@ -96,7 +110,7 @@
             </div> 
             <input type="hidden" name="id_usuario" value ="<?php echo $usuario->id_usuario;?>" >
        
-       <div id="empresa" class="hidden">
+       <div>
                  <label class="btn-foto" for='selecao-arquivo'>
                     <img src="imagens/editperf.png"  class = "edtft-btn">
                 </label>
@@ -115,47 +129,21 @@
 
                 <label>Senha</label>
                 <input class="input" type="password" name="senha_usuario" >
-
-                <label>CNPJ</label>
-                <input class="input" type="text" id="cnpj" name="id_doc"  value="<?php echo $usuario->id_doc;?>">
-              
-                
-
-                <input type="Submit" name="Enviar" value="Enviar">
-               
-            
-            
-       </div>
-       <div id="pessoa">
-                <label class="btn-foto" for='selecao-arquivo'>
-                    <img src="imagens/editperf.png"  class = "edtft-btn">
-                </label>
-                <input id='selecao-arquivo' type='file' name="url_foto_usuario">
-
-                <label>Nome</label>
-                <input class="input" type="text" name="nome_usuario" value="<?php echo $usuario->nome_usuario;?>">
-
-                
-
-
-                <label>E-mail</label>
-                <input class="input" type="text"  name="email_usuario" value="<?php echo $usuario->email_usuario;?>">
-
-                
-
-                <label>Senha</label>
-                <input class="input" type="password" name="senha_usuario" >
-
-                <label>CPF</label>
-                <input class="input" type="text" id="cpf" name="id_doc" value="<?php echo $usuario->id_doc;?>">
-              
-                
+                <div id="empresa" class="hidden">
+                    <label>CNPJ</label>
+                    <input class="input" type="text" id="cnpj" name="cnpj"  value="<?php echo $usuario->id_doc;?>">
+                </div>
+                <div id="pessoa">
+                    <label>CPF</label>
+                    <input class="input" type="text" id="cpf" name="cpf" value="<?php echo $usuario->id_doc;?>">
+                </div>
 
                 <input type="Submit" name="Enviar" value="Enviar">
                
             
             
        </div>
+       
        </form>
     
     </main>  

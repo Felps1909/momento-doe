@@ -25,7 +25,7 @@
         
     <div class="edt-perfil">
         
-        <form method="post" class="form-campos">
+        <form method="post" class="form-campos" enctype="multipart/form-data">
             <a href="perfil.php">Voltar</a>
             <label class="btn-foto" for='selecao-arquivo'>
                 <img src="imagens/editperf.png"  class = "edtft-btn">

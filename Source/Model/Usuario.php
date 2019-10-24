@@ -19,6 +19,23 @@ class Usuario
 
     public function salvarDados()
     {
+        if($this->id_tipo_us == 1){
+            if(!$this->validarCNPJ()){
+
+                return [
+                    'success'=>false,
+                    'message'=>"Cnpj Invalido."
+                ];
+            }
+        } else {
+            if(!$this->validarCPF()){
+                
+                return [
+                    'success'=>false,
+                    'message'=>"Cpf invalido."
+                ];
+            }
+        }
         //VERIFICAÇÃO DE USUARIO, VERIFICA SE JA N HÁ USUARIO CADASTRADO
         // $this->data_nascimento = implode("-",array_reverse(explode("/",$this->data_nascimento)));
         if(is_null($this->id_usuario)){
@@ -39,7 +56,7 @@ class Usuario
             $result = $query->execute();
             $this->id_usuario = Connect::getInstance()->lastInsertId();
             
-            return $result;
+ 
         }else{
             $query = Connect::getInstance()->prepare("UPDATE usuario set nome_usuario = :n, senha_usuario = :s,
                tel_usuario = :t ,email_usuario = :e, url_foto_usuario = :f, cod_status_usuario = :status , id_tipo_us = :codtip    where id_usuario = :uid
@@ -55,10 +72,21 @@ class Usuario
             $query->bindValue(':codtip',$this->id_tipo_us);
             // $query->bindValue(':d',$this->data_nascimento);
             
-            return $query->execute();
+            $result =  $query->execute();
 
              
                    
+        }
+        if($result){
+            return [
+                'success'=>true,
+                'message'=>"Sucesso!"
+            ];
+        }else{
+            return [
+                'success'=>false,
+                'message'=>"Não foi possivel executar a ação!"
+            ];
         }
            
     }
@@ -154,6 +182,113 @@ class Usuario
             return false;
         }
     }
-  
+  function validarCPF() {
+
+	// Verifica se um número foi informado
+	if(empty($this->id_doc)) {
+		return false;
+	}
+
+	// Elimina possivel mascara
+	$cpf = preg_replace("/[^0-9]/", "", $this->id_doc);
+	$cpf = str_pad($cpf, 11, '0', STR_PAD_LEFT);
+	
+	// Verifica se o numero de digitos informados é igual a 11 
+	if (strlen($cpf) != 11) {
+		return false;
+	}
+	// Verifica se nenhuma das sequências invalidas abaixo 
+	// foi digitada. Caso afirmativo, retorna falso
+	else if ($cpf == '00000000000' || 
+		$cpf == '11111111111' || 
+		$cpf == '22222222222' || 
+		$cpf == '33333333333' || 
+		$cpf == '44444444444' || 
+		$cpf == '55555555555' || 
+		$cpf == '66666666666' || 
+		$cpf == '77777777777' || 
+		$cpf == '88888888888' || 
+		$cpf == '99999999999') {
+		return false;
+	 // Calcula os digitos verificadores para verificar se o
+	 // CPF é válido
+	 } else {   
+		
+		for ($t = 9; $t < 11; $t++) {
+			
+			for ($d = 0, $c = 0; $c < $t; $c++) {
+				$d += $cpf{$c} * (($t + 1) - $c);
+			}
+			$d = ((10 * $d) % 11) % 10;
+			if ($cpf{$c} != $d) {
+				return false;
+			}
+		}
+
+		return true;
+	}
+}
+function validarCNPJ() {
+
+	// Verifica se um número foi informado
+	if(empty($this->id_doc)) {
+		return false;
+	}
+
+	// Elimina possivel mascara
+	$cnpj = preg_replace("/[^0-9]/", "", $this->id_doc);
+	$cnpj = str_pad($cnpj, 14, '0', STR_PAD_LEFT);
+	
+	// Verifica se o numero de digitos informados é igual a 11 
+	if (strlen($cnpj) != 14) {
+		return false;
+	}
+	
+	// Verifica se nenhuma das sequências invalidas abaixo 
+	// foi digitada. Caso afirmativo, retorna falso
+	else if ($cnpj == '00000000000000' || 
+		$cnpj == '11111111111111' || 
+		$cnpj == '22222222222222' || 
+		$cnpj == '33333333333333' || 
+		$cnpj == '44444444444444' || 
+		$cnpj == '55555555555555' || 
+		$cnpj == '66666666666666' || 
+		$cnpj == '77777777777777' || 
+		$cnpj == '88888888888888' || 
+		$cnpj == '99999999999999') {
+		return false;
+		
+	 // Calcula os digitos verificadores para verificar se o
+	 // CPF é válido
+	 } else {   
+	 
+		$j = 5;
+		$k = 6;
+		$soma1 = "";
+		$soma2 = "";
+
+		for ($i = 0; $i < 13; $i++) {
+
+			$j = $j == 1 ? 9 : $j;
+			$k = $k == 1 ? 9 : $k;
+
+			$soma2 += ($cnpj{$i} * $k);
+
+			if ($i < 12) {
+				$soma1 += ($cnpj{$i} * $j);
+			}
+
+			$k--;
+			$j--;
+
+		}
+
+		$digito1 = $soma1 % 11 < 2 ? 0 : 11 - $soma1 % 11;
+		$digito2 = $soma2 % 11 < 2 ? 0 : 11 - $soma2 % 11;
+
+		return (($cnpj{12} == $digito1) and ($cnpj{13} == $digito2));
+	 
+	}
+}
 
 }

@@ -1,8 +1,11 @@
 <?php
-namespace Source\Model;
+namespace Model;
 
-use Source\Database\Connect;
-use Source\Model\Usuario;
+include_once "Database/connect.php";
+include_once "Model/Usuario.php";
+
+use Database\Connect;
+use Model\Usuario;
 
 class Depoimentos
 {

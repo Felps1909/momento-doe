@@ -1,8 +1,8 @@
 <?php
     require_once "menu.php";
-    use Source\Model\Usuario;
-    use  Source\Model\UploadImage;
-    use Source\Model\TipoUsuario;
+    use Model\Usuario;
+    use  Model\UploadImage;
+    use Model\TipoUsuario;
   
  
 ?>
@@ -165,41 +165,4 @@
         }
 
         </script>
-        <!--fim box home-->
-
-
-
-        
-        
-
-        
-        <!--fim dos botoes cadastro e login-->
-
-
-         <!--Formulario de cadastro padrão -->
-         <!-- <form action="" method="post" id="formulario_cad">
-         <div class="botoes">
-             <input class="ongs" type="radio" name="tipos" value="1"> ONGs
-             <input class="empresa" type="radio" name="tipos" value="2"> EMPRESA
-             <input class="pessoa" type="radio" name="tipos" value="3"> PESSOA
-         </div> -->
-        
-
-         <!-- <label>Nome:</label>
-         <input class="input" type="text" name="nome_usuario" class="botao_form">
-         
-
-         <label>E-mail</label>
-         <input class="input" type="text" name="email_usuario" class="botao_form">
-         
-
-         <label>Senha:</label>
-         <input type="password" name="senha_usuario" class="botao_form">
-         
-
-         <label>Data de nascimento:</label>
-         <input type="date" name="data_usuario" value="data" class="botao_form">
-         
-
-         <input type="submit" name="enviar" value="Enviar" id="enviar">
-     </form> -->
+     

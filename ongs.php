@@ -1,11 +1,15 @@
 <?php
     
     require_once "menu.php";
-    use  Source\Model\TipoDoacao;
-    use  Source\Model\Doacoes;
-    use  Source\Model\UploadImage;
-    use  Source\Model\TipoUsuario;
+    include_once "Model/TipoDoacao.php";
+    include_once "Model/Doacoes.php";
+    include_once "Model/UploadImage.php";
+    include_once "Model/TipoUsuario.php";
 
+    use Model\TipoDoacao;
+    use Model\Doacoes;
+    use Model\UploadImage;
+    use Model\TipoUsuario;
 ?>
 
 <head>

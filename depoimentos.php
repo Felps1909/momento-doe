@@ -1,9 +1,9 @@
 <?php
-    require_once "menu.php";
-    use Source\Model\Depoimentos;
-   
+    require_once "menu.php";  
+    use Model\Usuario;
+    use Model\TipoUsuario;      
+    use Model\Depoimentos;
 
-    // $doacao = new Doacoes();
    
     
 ?>
@@ -13,7 +13,16 @@
          <!-- <img src="imagens/depoimentos.jpg" class = "img-doacao">  -->
         <p>Inspire outras pessoas<p>
         <p>A fazer o bem<p>
-        <button onClick="Mudarestado()" class="dar-depoimento">DAR DEPOIMENTO</button>
+        <?php
+           
+
+          if(@$_SESSION['id_tipo_us'] == TipoUsuario::PESSOA){
+            echo '<button onClick="Mudarestado()" class="dar-depoimento">DAR DEPOIMENTO</button>';
+          }     
+
+       
+        
+        ?>
         <p>Dê seu depoimento!</p>
         <p>Conte-nos como foi fazer o bem!<p>
 
@@ -22,7 +31,7 @@
                     <textarea name="desc_conteudo_depoimentos">
             Escreva aqui seu depoimento!
                     </textarea>
-                    <input type="file" name="img-doacao">
+                   
                    
                     <input class ="btn-doar" type = "submit" name="Enviar">
                 </form>
@@ -75,7 +84,7 @@
                             <div class="itenspost">
     
                                 <img src="imagens/postite.png">
-                                <img src="imagens/usuario.png" class="ft-pessoa">
+                                 <img src ="' . (is_null($usuario->url_foto_usuario) ? 'imagens/usuario.png' : $usuario->url_foto_usuario) . '  " class="ft-pessoa"> 
                                 <p class="nome">'.$usuario->nome_usuario.'</p>
                                 <p>'.$depoimentos->desc_conteudo_depoimentos.'</p>
                     

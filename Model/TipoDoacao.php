@@ -1,7 +1,7 @@
 <?php
-namespace Source\Model;
+namespace Model;
 
-use Source\Database\Connect;
+use Database\Connect;
 
 class TipoDoacao
 {

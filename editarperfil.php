@@ -1,11 +1,6 @@
 <?php
     require_once "menu.php";
-    @session_start();
-    if(!isset($_SESSION["id_usuario"])){
-     session_destroy(); 
-     header("Location: login.php"); 
-     exit; 
- } 
+   
 ?>
 <main>
     <style>
@@ -14,8 +9,8 @@
         }
     </style>
     <?php
-         use Source\Model\Usuario;
-         use  Source\Model\UploadImage;
+         use Model\Usuario;
+         use  Model\UploadImage;
          $usuario = new Usuario();
          if(isset($_GET['i'])){
              $usuario = $usuario->buscarDados("id_usuario = {$_GET['i']}")[0];

@@ -1,10 +1,15 @@
 <?php
     
     require_once "menu.php";
-    use  Source\Model\TipoDoacao;
-    use  Source\Model\Doacoes;
-    use  Source\Model\UploadImage;
-    use  Source\Model\TipoUsuario;
+    include_once "Model/TipoDoacao.php";
+    include_once "Model/Doacoes.php";
+    include_once "Model/UploadImage.php";
+    include_once "Model/TipoUsuario.php";
+
+    use Model\TipoDoacao;
+    use Model\Doacoes;
+    use Model\UploadImage;
+    use Model\TipoUsuario;
 ?>
 
 <head>
@@ -103,7 +108,7 @@
                         <p class = "nome-usuario">'.$usuario->nome_usuario.'</p>
                         <img src ="' . (is_null($doacao->url_foto_doacao) ? 'imagens/imgdefault.png' : $doacao->url_foto_doacao) . '" class = "img-desc-doacao">
                         <p class="desc-doacao">'.$doacao->desc_doacao.'<p></div>
-                        '.(@$_SESSION['id_tipo_us'] == TipoUsuario::ONG ? '<a href="perfil.php?i='.$usuario->id_usuario.'">Entrar em Contato</a>':'').'
+                        '.(@$_SESSION['id_tipo_us'] == TipoUsuario::ONG ? '<a href="perfil.php?i='.$usuario->id_usuario.'  ">Entre Contato</a>':'').'
                         ';
                     }
                
@@ -112,7 +117,7 @@
                 echo "Não há doaçoes no momento!";
             }
         ?>
-    
+      
        
     </div>
     <script>    

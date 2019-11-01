@@ -1,9 +1,10 @@
 <?php
-     require_once "vendor/autoload.php";
-     use Source\Model\Usuario;
-     use Source\Model\Depoimentos;
-     use Source\Model\Doacoes;
+ 
      require_once "menu.php";
+     use Model\Usuario;
+     use Model\Depoimentos;
+     use Model\Doacoes;
+     
 
     
    

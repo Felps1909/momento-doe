@@ -1,6 +1,16 @@
 <?php
-     require_once "vendor/autoload.php";
-     session_start();
+    @session_start();
+    require_once "Model/Depoimentos.php";
+    require_once "Model/Doacoes.php";
+    require_once "Model/Rank.php";
+    require_once "Model/TipoDoacao.php";
+    require_once "Model/TipoUsuario.php";
+    require_once "Model/UploadImage.php";
+    require_once "Model/Usuario.php";
+    require_once "Model/Publicacao.php";
+   
+    //  require_once "vendor/autoload.php";
+     
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

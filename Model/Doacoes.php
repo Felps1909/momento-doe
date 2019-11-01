@@ -1,9 +1,13 @@
 <?php
-namespace Source\Model;
+namespace Model;
 
-use Source\Database\Connect;
-use Source\Model\TipoDoacao;
-use Source\Model\Usuario;
+include_once "Database/connect.php";
+include_once "Model/TipoDoacao.php";
+include_once "Model/Usuario.php";
+
+use Database\Connect;
+use Model\TipoDoacao;
+use Model\Usuario;
 
 class Doacoes
 {
@@ -70,5 +74,10 @@ class Doacoes
         $query->bindValue(":idu",$_SESSION['id_usuario']);
         return $query->execute();
         
+    }
+    public function deletarDoacao(){
+        $query= Connect::getInstance()->prepare("DELETE * from doacao where cod_status_doacao = 0
+        ");
+        return $query;
     }
 }

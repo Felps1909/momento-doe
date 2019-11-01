@@ -1,7 +1,10 @@
 <?php
     require_once "menu.php";
-    use Source\Model\Rank;
-    use Source\Model\Depoimentos;
+    require_once  "Model/Depoimentos.php";
+    require_once "Model/Rank.php";
+    use Model\Rank;
+    use Model\Depoimentos;
+    use Model\TipoUsuario;
     $rank = new Rank();
 ?>
 <!DOCTYPE html>
@@ -18,7 +21,14 @@
         <img class="img-home" src="imagens/HOME2.png" alt="">
         <h1 class="p1">O que você</h1>
         <h2 class="p2">pode doar hoje?</h2>
-        <a href = "doacoes.php"><button>QUERO AJUDAR</button></a>
+        <?php
+            if(@$_SESSION['id_tipo_us']==TipoUsuario::PESSOA){
+                echo '<a href = "doacoes.php"><button>QUERO AJUDAR</button></a>';
+            }
+        
+        ?>
+
+        
         <h2 class="p3">Nos ajude</h2>
         <h2 class="p4">a ajudar</h2>
         <h2 class="p5">outros</h2>
@@ -49,6 +59,7 @@
         <h4>Depoimentos</h4>
         <section class="depo-postite">
         <?php
+        //  use Source\Models\Depoimentos;
             $depoimentos = new Depoimentos();
             $dados = $depoimentos->buscarDados("cod_status_depoimentos = 1");
 
@@ -78,7 +89,7 @@
         <h4>Grandes Heróis</h4>
         
         <?php 
-
+     
         $classificados = $rank->buscarRank();
 
             function exibirNota($nota){

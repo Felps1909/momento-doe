@@ -1,5 +1,5 @@
 <?php
-    namespace Source\Model;
+    namespace Model;
      class UploadImage{
         private $arquivo;
         private $altura;

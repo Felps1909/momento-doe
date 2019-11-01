@@ -1,8 +1,11 @@
 <?php
-namespace Source\Model;
+namespace Model;
 
-use Source\Database\Connect;
-use Source\Model\TipoUsuario;
+require_once "Database/connect.php";
+require_once "Model/TipoUsuario.php";
+
+use Database\Connect;
+use Model\TipoUsuario;
 
 class Usuario
 {

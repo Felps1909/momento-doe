@@ -2,7 +2,7 @@
 require_once "menu.php";
   
     
-     use Source\Model\Usuario;
+     use Model\Usuario;
      
     $usuario = new Usuario();
     
@@ -11,9 +11,9 @@ require_once "menu.php";
 
         if(isset($_POST['email_usuario'])){
             
-       
+         $email_usuario = addslashes($_POST['email_usuario']);
         $senha_usuario = hash("sha256", addslashes($_POST['senha_usuario']));
-        $email_usuario = addslashes($_POST['email_usuario']);
+        
        
         
         if(!empty($senha_usuario) && !empty($email_usuario)){
